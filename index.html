@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asella Town Municipality - Digital Portal</title>
+    <title>Bulchiinsa Magaalaa Asallaa - Digital Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,8 @@
         .serif-heading { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 relative min-h-screen">
+<body class="bg-slate-50 text-slate-800 relative min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
 
-    <!-- SIDEBAR -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-[#064e3b] text-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between">
         <div class="p-6">
             <div class="flex items-center justify-between mb-8">
@@ -51,7 +50,7 @@
                 <nav class="space-y-1">
                     <a href="#incident-tracker" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-care">⚠️ Citizen Care Portal</span></a>
                     <a href="#quick-access" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-vault">📄 Form Vault & Permits</span></a>
-                    <a href="#quick-access" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-sanitation">📅 Sanitation Calendar</span></a>
+                    <a href="#sister-cities" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-sister">🏢 Regional Sister Cities</span></a>
                 </nav>
             </div>
         </div>
@@ -61,8 +60,7 @@
     </div>
     <div id="sidebar-overlay" onclick="App.UI.toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden transition-opacity duration-300"></div>
 
-    <!-- HEADER -->
-    <header class="bg-white/95 sticky top-0 z-30 shadow-sm backdrop-blur-md">
+    <header class="bg-white/95 sticky top-0 z-30 shadow-xs backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
                 <button onclick="App.UI.toggleSidebar()" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Menu">
@@ -95,15 +93,14 @@
         </div>
     </header>
 
-    <!-- ADMIN LOGIN MODAL -->
-    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 border border-slate-100 shadow-2xl space-y-4 relative">
-            <button onclick="App.Auth.closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1 rounded-lg" aria-label="Close Login Modal">
+            <button onclick="App.Auth.closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1 rounded-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
             <div class="text-center">
                 <h3 class="serif-heading text-2xl font-bold text-slate-900">Municipal Authentication</h3>
-                <p class="text-xs text-slate-500 mt-1">Access secure system dashboards & dispatcher controls.</p>
+                <p class="text-xs text-slate-500 mt-1">Access secure system dashboards & inline modifier controls.</p>
             </div>
             <form id="adminLoginForm" onsubmit="App.Auth.handleLogin(event)" class="space-y-4">
                 <div>
@@ -114,7 +111,7 @@
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Passkey Keyframe</label>
                     <input type="password" id="adminPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
                 </div>
-                <div id="login-error" class="text-xs text-red-600 font-medium hidden">⚠️ Invalid secure authorization credentials matching this layout node.</div>
+                <div id="login-error" class="text-xs text-red-600 font-medium hidden">⚠️ Invalid secure authorization credentials matching this node.</div>
                 <button type="submit" class="w-full bg-[#064e3b] hover:bg-emerald-900 text-white font-medium py-2.5 rounded-lg text-sm transition-colors shadow-xs cursor-pointer">
                     Secure Login ➔
                 </button>
@@ -122,7 +119,6 @@
         </div>
     </div>
 
-    <!-- NOTICES -->
     <div class="max-w-7xl mx-auto px-4 mt-4 space-y-2">
         <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl flex items-start justify-between">
             <div class="flex space-x-3">
@@ -130,192 +126,111 @@
                 <p data-i18n="notice-critical" class="text-sm text-red-900 font-medium">Asella-Kulumsa Route Notice: Heavy vehicle bypass layout adjustment near Kulumsa Secondary School entry.</p>
             </div>
         </div>
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl flex items-start justify-between">
-            <div class="flex space-x-3">
-                <span data-i18n="tag-maintenance" class="bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mt-0.5 tracking-wider">MAINTENANCE</span>
-                <p data-i18n="notice-maintenance" class="text-sm text-amber-900 font-medium">Utility Maintenance: Water main pipeline installation along Chilton Main Highway may reduce water pressure across Kebele 02.</p>
-            </div>
-        </div>
     </div>
 
-    <!-- HERO BANNER -->
     <section class="max-w-7xl mx-auto px-4 mt-6">
-        <div class="relative rounded-3xl overflow-hidden bg-slate-950 text-white min-h-[460px] flex items-end shadow-xl">
-            <img src="IMG_5664.jpeg" alt="Asella Town Gateway Sunset" class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-screen transform scale-100 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1546482502-042c98b3f88d?auto=format&fit=crop&w=1600&q=80';">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+        <div class="relative rounded-3xl overflow-hidden bg-slate-950 text-white min-h-[420px] flex items-end shadow-xl">
+            <img src="https://images.unsplash.com/photo-1546482502-042c98b3f88d?auto=format&fit=crop&w=1600&q=80" alt="Asella Town Backdrop" class="absolute inset-0 w-full h-full object-cover opacity-40 transform scale-100 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
             
             <div class="relative z-10 p-6 md:p-12 w-full max-w-4xl space-y-4">
                 <div class="inline-flex items-center space-x-2 bg-emerald-950/80 backdrop-blur-md border border-emerald-500/30 px-4 py-1.5 rounded-full">
                     <span class="w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
                     <span data-i18n="hero-tag" class="text-xs font-semibold uppercase tracking-wider text-emerald-300">Welcome to the Central Administrative Portal</span>
                 </div>
-                
-                <h1 data-i18n="hero-title" class="serif-heading text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                    Asella Town Municipality
-                </h1>
-                
-                <p data-i18n="hero-sub" class="text-amber-400 font-medium text-xs md:text-sm tracking-widest uppercase">
-                    Empowering Citizens, Promoting Innovation, Driving Civic Growth
-                </p>
-                
-                <p data-i18n="hero-desc" class="text-slate-200 text-sm md:text-base leading-relaxed font-light">
-                    Nestled at the eastern foothills of the breathtaking Mount Chilalo, Asella is a hub of active commerce, agricultural technology, and vocational craftsmanship. Explore municipal corridors, access active public solicitations, coordinate community sanitation calendars, and track resolution services in real time.
-                </p>
-
+                <h1 data-i18n="hero-title" class="serif-heading text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">Bulchiinsa Magaalaa Asallaa</h1>
+                <p data-i18n="hero-sub" class="text-amber-400 font-medium text-xs md:text-sm tracking-widest uppercase">Empowering Citizens, Promoting Innovation, Driving Civic Growth</p>
+                <p data-i18n="hero-desc" class="text-slate-200 text-sm md:text-base leading-relaxed font-light">Nestled at the eastern foothills of Mount Chilalo, Asella is a hub of active commerce, agricultural technology, and vocational craftsmanship. Control real-time tracking, update municipal records, and synchronize infrastructure alerts instantly.</p>
                 <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center gap-4 text-xs text-slate-300">
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                        <span data-i18n="hero-loc" class="font-medium text-white">Arsi Zone, Oromia, Ethiopia</span>
-                    </div>
+                    <span data-i18n="hero-loc" class="font-medium text-white">Arsi Zone, Oromia, Ethiopia</span>
                     <span class="text-slate-600">•</span>
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span><span data-i18n="hero-era-label">Administrative Era:</span> <strong data-i18n="hero-era-val" class="text-white">May 2026 Admin Year (18 E.C.)</strong></span>
-                    </div>
+                    <span class="text-slate-300"><span data-i18n="hero-era-label">Era:</span> <strong data-i18n="hero-era-val" class="text-white">May 2026 Admin Year (18 E.C.)</strong></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MAIN DASHBOARD -->
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-        <!-- METRICS -->
-        <section class="space-y-4">
-            <h3 data-i18n="metrics-header" class="text-xs font-bold uppercase tracking-widest text-slate-400">Addis Ababa Style Corridor & Infrastructure Benchmarks</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs flex items-center space-x-4">
-                    <div class="p-3 rounded-xl bg-emerald-50 text-emerald-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                    </div>
-                    <div>
-                        <div data-i18n="stat-1-val" class="text-xl font-bold tracking-tight">14.8 km completed</div>
-                        <div data-i18n="stat-1-lbl" class="text-xs text-slate-500">Asphalt Corridors</div>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs flex items-center space-x-4">
-                    <div class="p-3 rounded-xl bg-amber-50 text-amber-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5-9-5-9 5 9 5zm0 0v6m0-6l9-5-9-5-9 5 9 5z"/></svg>
-                    </div>
-                    <div>
-                        <div data-i18n="stat-2-val" class="text-xl font-bold tracking-tight">420+ Graduated</div>
-                        <div data-i18n="stat-2-lbl" class="text-xs text-slate-500">Youth MSE Cooperatives</div>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs flex items-center space-x-4">
-                    <div class="p-3 rounded-xl bg-blue-50 text-blue-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                    </div>
-                    <div>
-                        <div data-i18n="stat-3-val" class="text-xl font-bold tracking-tight">98.4% pipeline Coverage</div>
-                        <div data-i18n="stat-3-lbl" class="text-xs text-slate-500">Potable Drinking Water</div>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-xs flex items-center space-x-4">
-                    <div class="p-3 rounded-xl bg-purple-50 text-purple-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <div>
-                        <div data-i18n="stat-4-val" class="text-xl font-bold tracking-tight">3.2 MegaWatts</div>
-                        <div data-i18n="stat-4-lbl" class="text-xs text-slate-500">Clean Road Lighting</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LAYOUT GRID -->
         <section class="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
-            <!-- LEFT COLUMN: FRAMEWORK -->
-            <div class="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+            <div class="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs space-y-6">
                 <div>
                     <h3 data-i18n="frame-title" class="font-bold text-lg text-slate-900 tracking-tight">Capital Framework</h3>
                     <p data-i18n="frame-sub" class="text-xs text-slate-500">18 E.C. Asset Lifecycle Monitor</p>
                 </div>
                 <div class="space-y-3">
                     <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                        <span data-i18n="lbl-infra" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Active Infrastructure Projects</span>
+                        <span data-i18n="lbl-infra" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Active Projects</span>
                         <div class="text-3xl font-black mt-1 text-slate-900">14</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                        <span data-i18n="lbl-biz" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Verified Local Businesses</span>
+                        <span data-i18n="lbl-biz" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Verified Businesses</span>
                         <div class="text-3xl font-black mt-1 text-[#064e3b]">58</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                        <span data-i18n="lbl-tenders" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Active Open Tenders</span>
-                        <div class="text-3xl font-black mt-1 text-amber-600">7</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                        <span data-i18n="lbl-resolved" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Resolved Citizen Reports</span>
+                        <span data-i18n="lbl-resolved" class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Resolved Incidents</span>
                         <div id="resolved-counter-display" class="text-3xl font-black mt-1 text-purple-700">142</div>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: ACCESS TILES -->
             <div id="quick-access" class="lg:col-span-3 space-y-4">
-                <div class="bg-gradient-to-r from-slate-900 to-[#064e3b] p-6 rounded-3xl text-white shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <h3 data-i18n="london-title" class="font-bold text-lg">London Style Quick-Access System</h3>
-                        <p data-i18n="london-sub" class="text-xs text-emerald-200/80 font-light mt-0.5">Find actions instantly. Types matching terms in top bar directory layout system.</p>
-                    </div>
+                <div class="bg-gradient-to-r from-slate-900 to-[#064e3b] p-6 rounded-3xl text-white shadow-xs">
+                    <h3 data-i18n="london-title" class="font-bold text-lg">London Style Quick-Access System</h3>
+                    <p data-i18n="london-sub" class="text-xs text-emerald-200/80 font-light mt-0.5">Find administrative services instantly. Real-time updates occur instantly across local instances.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-xs transition-all flex flex-col justify-between group">
                         <div class="space-y-2">
                             <span data-i18n="tile-1-tag" class="bg-amber-50 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Civic Care Portal</span>
-                            <h4 data-i18n="tile-1-title" class="font-bold text-slate-900 group-hover:text-[#064e3b] transition-colors">Report Localized Incident</h4>
-                            <p data-i18n="tile-1-desc" class="text-xs text-slate-500 leading-relaxed">Submit citizen care reports and track town dispatchers in real time.</p>
+                            <h4 data-i18n="tile-1-title" class="font-bold text-slate-900 group-hover:text-[#064e3b] transition-colors">Report Local Incident</h4>
+                            <p data-i18n="tile-1-desc" class="text-xs text-slate-500 leading-relaxed">Submit citizen care reports and track municipal responses seamlessly.</p>
                         </div>
-                        <a href="#incident-tracker" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch service desk ↗</a>
+                        <a href="#incident-tracker" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch desk ↗</a>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-xs transition-all flex flex-col justify-between group">
                         <div class="space-y-2">
                             <span data-i18n="tile-2-tag" class="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Form Vault & Permits</span>
                             <h4 data-i18n="tile-2-title" class="font-bold text-slate-900 group-hover:text-[#064e3b] transition-colors">Download Official Permits</h4>
-                            <p data-i18n="tile-2-desc" class="text-xs text-slate-500 leading-relaxed">Browse and download official municipal PDFs and construction licenses instantly.</p>
+                            <p data-i18n="tile-2-desc" class="text-xs text-slate-500 leading-relaxed">Browse official municipal PDFs and development licensing frameworks.</p>
                         </div>
-                        <a href="#" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch service desk ↗</a>
+                        <a href="#" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch desk ↗</a>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 hover:border-emerald-500/30 hover:shadow-xs transition-all flex flex-col justify-between group">
                         <div class="space-y-2">
                             <span data-i18n="tile-3-tag" class="bg-blue-50 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Tenders & Bidding</span>
                             <h4 data-i18n="tile-3-title" class="font-bold text-slate-900 group-hover:text-[#064e3b] transition-colors">View Open Tenders</h4>
-                            <p data-i18n="tile-3-desc" class="text-xs text-slate-500 leading-relaxed">Access public solicitations and trade opportunities published by Procurement Directorate.</p>
+                            <p data-i18n="tile-3-desc" class="text-xs text-slate-500 leading-relaxed">Access active commercial public solicitations verified by the board.</p>
                         </div>
-                        <a href="#" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch service desk ↗</a>
+                        <a href="#" data-i18n="dispatch-link" class="mt-4 inline-flex items-center text-xs font-semibold text-[#064e3b] hover:underline">Dispatch desk ↗</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- INCIDENT SYSTEM -->
         <section id="incident-tracker" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <!-- TRACKER LIST -->
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                         <div class="flex items-center space-x-2">
                             <h3 data-i18n="inc-hist-title" class="font-bold text-xl text-slate-900 tracking-tight">Incident Tracker History</h3>
-                            <div id="admin-badge" class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider hidden animate-pulse">ADMIN VIEW</div>
+                            <div id="admin-badge" class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider hidden animate-pulse">ADMIN EDIT MODE ENABLED</div>
                         </div>
-                        <p data-i18n="inc-hist-sub" class="text-xs text-slate-500">Submit and track localized town issues in your neighborhood.</p>
+                        <p data-i18n="inc-hist-sub" class="text-xs text-slate-500">Submit, filter, or natively modify live regional layout incidents.</p>
                     </div>
                     <div class="inline-flex rounded-lg bg-slate-200/70 p-1 text-xs font-medium text-slate-600 self-start">
-                        <button onclick="App.DataEngine.filterIncidents('all', this)" data-i18n="btn-all" class="px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold">All Statuses</button>
-                        <button onclick="App.DataEngine.filterIncidents('Received', this)" data-i18n="btn-rec" class="px-3 py-1.5 rounded-md hover:text-slate-900">Received</button>
-                        <button onclick="App.DataEngine.filterIncidents('In Progress', this)" data-i18n="btn-prog" class="px-3 py-1.5 rounded-md hover:text-slate-900">In Progress</button>
-                        <button onclick="App.DataEngine.filterIncidents('Resolved', this)" data-i18n="btn-res" class="px-3 py-1.5 rounded-md hover:text-slate-900">Resolved</button>
+                        <button onclick="App.DataEngine.filterIncidents('all', this)" data-i18n="btn-all" class="px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold cursor-pointer">All Statuses</button>
+                        <button onclick="App.DataEngine.filterIncidents('Received', this)" data-i18n="btn-rec" class="px-3 py-1.5 rounded-md cursor-pointer">Received</button>
+                        <button onclick="App.DataEngine.filterIncidents('In Progress', this)" data-i18n="btn-prog" class="px-3 py-1.5 rounded-md cursor-pointer">In Progress</button>
+                        <button onclick="App.DataEngine.filterIncidents('Resolved', this)" data-i18n="btn-res" class="px-3 py-1.5 rounded-md cursor-pointer">Resolved</button>
                     </div>
                 </div>
 
-                <!-- Dynamic Data Target Container -->
                 <div id="incidents-container" class="space-y-3"></div>
             </div>
 
-            <!-- SUBMISSION FORM -->
             <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-5 self-start">
                 <div class="flex items-center space-x-2 text-[#064e3b]">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -325,86 +240,105 @@
                 <form id="incidentForm" onsubmit="App.DataEngine.handleFormSubmit(event)" class="space-y-4">
                     <div>
                         <label data-i18n="form-lbl-cat" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Incident Category</label>
-                        <select id="formCategory" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
+                        <select id="formCategory" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none">
                             <option>Street Light Outage</option>
                             <option>Water Pipeline Leakage</option>
                             <option>Drainage Blockage</option>
                             <option>Road Hazard / Pothole</option>
-                            <option>Illegal Waste Dumping</option>
                         </select>
                     </div>
-
                     <div>
-                        <label data-i18n="form-lbl-loc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Precise Location or Kebele <span class="text-red-500">*</span></label>
-                        <input type="text" id="formLocation" required placeholder="e.g. Kebele 02, near Roundabout" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
+                        <label data-i18n="form-lbl-loc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Location / Kebele *</label>
+                        <input type="text" id="formLocation" required placeholder="e.g. Kebele 02, Main Rd" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none">
                     </div>
-
                     <div>
-                        <label data-i18n="form-lbl-desc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Detailed Description <span class="text-red-500">*</span></label>
-                        <textarea id="formDescription" required rows="4" placeholder="Please provide exact details to help our dispatchers identify the emergency..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]"></textarea>
+                        <label data-i18n="form-lbl-desc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Detailed Description *</label>
+                        <textarea id="formDescription" required rows="3" placeholder="Provide complete infrastructure details..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none"></textarea>
                     </div>
-
-                    <button type="submit" class="w-full bg-[#064e3b] hover:bg-emerald-900 text-white font-medium py-2.5 rounded-lg text-sm transition-colors shadow-xs flex items-center justify-center space-x-1 cursor-pointer">
-                        <span data-i18n="form-submit-btn">+ Submit Incidency Report</span>
-                    </button>
+                    <button type="submit" data-i18n="form-submit-btn" class="w-full bg-[#064e3b] hover:bg-emerald-900 text-white font-medium py-2.5 rounded-lg text-sm transition-colors shadow-xs cursor-pointer">+ Submit Incident Report</button>
                 </form>
+            </div>
+        </section>
 
-                <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 flex items-start space-x-3">
-                    <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <div id="guarantee-box" class="text-xs text-emerald-900 leading-relaxed">
-                        <strong class="font-semibold block mb-0.5">Guaranteed Turnaround Timeline</strong>
-                        All safety report packets trigger municipal dispatch alerts. Urgent pipeline and hazard tickets receive site visits within 48 hours.
+        <section id="sister-cities" class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-6">
+            <div>
+                <h3 data-i18n="sister-title" class="serif-heading text-2xl font-bold text-slate-900 tracking-tight">Oromia Municipal Sister-City Network</h3>
+                <p data-i18n="sister-sub" class="text-xs text-slate-500 mt-1">Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-slate-900 text-base">Adama City Municipal Portal</h4>
+                            <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Connected Backbone</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Primary logistical sister corridor. Integration focuses on standardizing transit reporting, heavy freight route distribution, and coordinated trade-lane asset allocation.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-medium">Network Latency: <strong class="text-emerald-600 font-mono">0.4ms</strong></span>
+                        <a href="#" class="text-[#064e3b] font-semibold hover:underline">Access Adama Node ➔</a>
+                    </div>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-slate-900 text-base">Bishoftu Municipal Network</h4>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Peer Node Active</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Secondary economic sister grid alignment. Co-managing smart public utilities deployment strategies and agricultural tech-transfer databases.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-medium">Sync Rate: <strong class="text-emerald-600 font-mono">Real-time</strong></span>
+                        <a href="#" class="text-[#064e3b] font-semibold hover:underline">Access Bishoftu Node ➔</a>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-sm mt-20 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="space-y-3">
                 <div class="text-white font-bold text-lg tracking-tight">asela<span class="text-amber-400">.et</span></div>
-                <p data-i18n="foot-desc" class="text-xs leading-relaxed text-slate-400">Official digital gateway administration system framework for the Municipality of Asella Town. Built for transparency, performance, and real-time public asset auditing.</p>
+                <p data-i18n="foot-desc" class="text-xs leading-relaxed text-slate-500">Official digital gateway architecture for the Municipality of Asella Town. Engineered for modular optimization and runtime execution auditing.</p>
             </div>
             <div>
                 <h4 data-i18n="foot-nav-title" class="text-white text-xs font-bold uppercase tracking-wider mb-3">Quick Navigation</h4>
                 <div class="grid grid-cols-2 gap-2 text-xs">
                     <a href="#quick-access" data-i18n="foot-hub" class="hover:text-white transition-colors">Permit Hub</a>
-                    <a href="#quick-access" data-i18n="foot-tenders" class="hover:text-white transition-colors">Open Tenders</a>
                     <a href="#incident-tracker" data-i18n="foot-care" class="hover:text-white transition-colors">Incident Care</a>
+                    <a href="#sister-cities" class="hover:text-white transition-colors">Sister Cities</a>
                     <a href="#" onclick="App.Auth.openModal()" data-i18n="foot-admin" class="hover:text-white transition-colors">Admin Portal</a>
                 </div>
             </div>
             <div class="text-xs space-y-2">
                 <h4 data-i18n="foot-meta-title" class="text-white text-xs font-bold uppercase tracking-wider mb-2">Registry & Portal Metadata</h4>
-                <div><span data-i18n="foot-reg">Authorized Registry Domain:</span> <span class="text-amber-400 font-mono">www.asela.et</span></div>
-                <div><span data-i18n="foot-back">Server Zone Backbone:</span> <span class="text-slate-300">Ethio Telecom Core Network</span></div>
+                <div>Authorized Registry Domain: <span class="text-amber-400 font-mono">www.asela.et</span></div>
                 <div data-i18n="foot-copy" class="text-slate-500 text-[11px] pt-2">© 2026 Asella Town Municipality. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
-    <!-- CENTRAL ENCAPSULATED APPLICATION LOGIC -->
     <script>
         const App = (() => {
-            // State Storage Engine
+            // Immutable/Mutable Client-side Central State Data
             const State = {
                 isAdminLoggedIn: false,
                 currentFilterStatus: 'all',
                 incidents: [
                     {
                         id: "REP-2026-001",
-                        date: "2026-05-18",
+                        date: "2026-06-25",
                         status: "In Progress",
                         category: "Street Light Outage",
-                        description: "The street lights covering the bypass crossing have been inactive for over a week, posing security hazards for pedestrians after dark.",
-                        location: "Gende Ada, Main Avenue near Commercial Bank"
+                        description: "The street lights covering the main bypass crossing have been inactive, affecting pedestrian traffic safety.",
+                        location: "Kebele 02, Main Avenue near Bank"
                     }
                 ]
             };
 
-            // Translation Catalog Structure
+            // Translation Context Resources
             const Translations = {
                 en: {
                     "lang-label": "🌐 English",
@@ -418,72 +352,57 @@
                     "nav-economy": "Local Economy",
                     "sub-care": "⚠️ Citizen Care Portal",
                     "sub-vault": "📄 Form Vault & Permits",
-                    "sub-sanitation": "📅 Sanitation Calendar",
+                    "sub-sister": "🏢 Regional Sister Cities",
                     "admin-btn": "Admin Portal",
                     "tag-critical": "CRITICAL",
                     "notice-critical": "Asella-Kulumsa Route Notice: Heavy vehicle bypass layout adjustment near Kulumsa Secondary School entry.",
-                    "tag-maintenance": "MAINTENANCE",
-                    "notice-maintenance": "Utility Maintenance: Water main pipeline installation along Chilton Main Highway may reduce water pressure across Kebele 02.",
                     "hero-tag": "Welcome to the Central Administrative Portal",
-                    "hero-title": "Asella Town Municipality",
+                    "hero-title": "Bulchiinsa Magaalaa Asallaa",
                     "hero-sub": "Empowering Citizens, Promoting Innovation, Driving Civic Growth",
-                    "hero-desc": "Nestled at the eastern foothills of the breathtaking Mount Chilalo, Asella is a hub of active commerce, agricultural technology, and vocational craftsmanship. Explore municipal corridors, access active public solicitations, coordinate community sanitation calendars, and track resolution services in real time.",
+                    "hero-desc": "Nestled at the eastern foothills of Mount Chilalo, Asella is a hub of active commerce, agricultural technology, and vocational craftsmanship. Control real-time tracking, update municipal records, and synchronize infrastructure alerts instantly.",
                     "hero-loc": "Arsi Zone, Oromia, Ethiopia",
-                    "hero-era-label": "Administrative Era:",
+                    "hero-era-label": "Era:",
                     "hero-era-val": "May 2026 Admin Year (18 E.C.)",
-                    "metrics-header": "Addis Ababa Style Corridor & Infrastructure Benchmarks",
-                    "stat-1-val": "14.8 km completed",
-                    "stat-1-lbl": "Asphalt Corridors",
-                    "stat-2-val": "420+ Graduated",
-                    "stat-2-lbl": "Youth MSE Cooperatives",
-                    "stat-3-val": "98.4% pipeline Coverage",
-                    "stat-3-lbl": "Potable Drinking Water",
-                    "stat-4-val": "3.2 MegaWatts",
-                    "stat-4-lbl": "Clean Road Lighting",
                     "frame-title": "Capital Framework",
                     "frame-sub": "18 E.C. Asset Lifecycle Monitor",
-                    "lbl-infra": "Active Infrastructure Projects",
-                    "lbl-biz": "Verified Local Businesses",
-                    "lbl-tenders": "Active Open Tenders",
-                    "lbl-resolved": "Resolved Citizen Reports",
+                    "lbl-infra": "Active Projects",
+                    "lbl-biz": "Verified Businesses",
+                    "lbl-resolved": "Resolved Incidents",
                     "london-title": "London Style Quick-Access System",
-                    "london-sub": "Find actions instantly. Types matching terms in top bar directory layout system.",
+                    "london-sub": "Find administrative services instantly. Real-time updates occur instantly across local instances.",
                     "tile-1-tag": "Civic Care Portal",
-                    "tile-1-title": "Report Localized Incident",
-                    "tile-1-desc": "Submit citizen care reports and track town dispatchers in real time.",
+                    "tile-1-title": "Report Local Incident",
+                    "tile-1-desc": "Submit citizen care reports and track municipal responses seamlessly.",
                     "tile-2-tag": "Form Vault & Permits",
                     "tile-2-title": "Download Official Permits",
-                    "tile-2-desc": "Browse and download official municipal PDFs and construction licenses instantly.",
+                    "tile-2-desc": "Browse official municipal PDFs and development licensing frameworks.",
                     "tile-3-tag": "Tenders & Bidding",
                     "tile-3-title": "View Open Tenders",
-                    "tile-3-desc": "Access public solicitations and trade opportunities published by Procurement Directorate.",
-                    "dispatch-link": "Dispatch service desk ↗",
+                    "tile-3-desc": "Access active commercial public solicitations verified by the board.",
+                    "dispatch-link": "Dispatch desk ↗",
                     "inc-hist-title": "Incident Tracker History",
-                    "inc-hist-sub": "Submit and track localized town issues in your neighborhood.",
+                    "inc-hist-sub": "Submit, filter, or natively modify live regional layout incidents.",
                     "btn-all": "All Statuses",
                     "btn-rec": "Received",
                     "btn-prog": "In Progress",
                     "btn-res": "Resolved",
                     "form-header": "Submit New Incident",
                     "form-lbl-cat": "Incident Category",
-                    "form-lbl-loc": "Precise Location or Kebele *",
+                    "form-lbl-loc": "Location / Kebele *",
                     "form-lbl-desc": "Detailed Description *",
-                    "form-submit-btn": "+ Submit Incidency Report",
-                    "guarantee-box": "<strong class='font-semibold block mb-0.5'>Guaranteed Turnaround Timeline</strong>All safety report packets trigger municipal dispatch alerts. Urgent pipeline and hazard tickets receive site visits within 48 hours.",
-                    "foot-desc": "Official digital gateway administration system framework for the Municipality of Asella Town. Built for transparency, performance, and real-time public asset auditing.",
+                    "form-submit-btn": "+ Submit Incident Report",
+                    "sister-title": "Oromia Municipal Sister-City Network",
+                    "sister-sub": "Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.",
+                    "foot-desc": "Official digital gateway architecture for the Municipality of Asella Town. Engineered for modular optimization and runtime execution auditing.",
                     "foot-nav-title": "Quick Navigation",
                     "foot-hub": "Permit Hub",
-                    "foot-tenders": "Open Tenders",
                     "foot-care": "Incident Care",
                     "foot-admin": "Admin Portal",
-                    "foot-meta-title": "Registry & Portal Metadata",
-                    "foot-reg": "Authorized Registry Domain:",
-                    "foot-back": "Server Zone Backbone:",
-                    "foot-copy": "© 2026 Asella Town Municipality. All rights reserved."
+                    "foot-meta-title": "Registry & Portal Metadata"
                 },
                 am: {
                     "lang-label": "🌐 አማርኛ",
-                    "search-holder": "የአስተዳደር መዝገቦችን፣ ጨረታዎችን ይፈልጉ...",
+                    "search-holder": "የአስተዳደር መዝገቦችን ይፈልጉ...",
                     "side-sub": "የአሰላ ማዘጋጃ ቤት ዲጂታል መግቢያ",
                     "side-title-1": "የአስተዳደር አምዶች",
                     "side-title-2": "ዋና ንዑስ ክፍሎች",
@@ -493,48 +412,36 @@
                     "nav-economy": "የአካባቢ ኢኮኖሚ",
                     "sub-care": "⚠️ የዜጎች እንክብካቤ ፖርታል",
                     "sub-vault": "📄 የቅጽ ማጠራቀሚያ እና ፈቃዶች",
-                    "sub-sanitation": "📅 የጽዳት ቀን መቁጠሪያ",
+                    "sub-sister": "🏢 የክልል እህት ከተሞች",
                     "admin-btn": "የአስተዳዳሪ ፖርታል",
                     "tag-critical": "አስቸኳይ",
                     "notice-critical": "የአሰላ-ቁሉምሳ መንገድ ማስታወቂያ፡ በቁሉምሳ ሁለተኛ ደረጃ ትምህርት ቤት መግቢያ አቅራቢያ የከባድ ተሽከርካሪዎች ማዞሪያ ማስተካከያ ተደርጓል።",
-                    "tag-maintenance": "ጥገና",
-                    "notice-maintenance": "የመገልገያ ጥገና፡ በቺልቶን ዋና አውራ ጎዳና ላይ የውሃ መስመር ዝርጋታ በኬበሌ 02 የውሃ ግፊት ሊቀንስ ይችላል።",
                     "hero-tag": "ወደ ማዕከላዊ የአስተዳደር ፖርታል እንኳን ደህና መጡ",
-                    "hero-title": "የአሰላ ከተማ ማዘጋጃ ቤት አስተዳደር",
+                    "hero-title": "የአሰላ ከተማ ማዘጋጃ ቤት",
                     "hero-sub": "ዜጎችን ማብቃት፣ ፈጠራን ማሳደግ፣ የከተማ እድገትን መምራት",
-                    "hero-desc": "በማራኪው የቺላሎ ተራራ ምስራቃዊ ግርጌ የምትገኘው አሰላ የነቃ ንግድ፣ የግብርና ቴክኖሎጂ እና የሙያ ጥበብ ማዕከል ናት። የማዘጋጃ ቤት መተላለፊያዎችን ያስሱ፣ ንቁ የህዝብ ጨረታዎችን ያግኙ፣ የማህበረሰብ ጽዳት ቀናትን ያስተባብሩ እና ችግሮችን በቅጽበት ይከታተሉ።",
+                    "hero-desc": "በማራኪው የቺላሎ ተራራ ምስራቃዊ ግርጌ የምትገኘው አሰላ የነቃ ንግድ፣ የግብርና ቴክኖሎጂ እና የሙያ ጥበብ ማዕከል ናት።",
                     "hero-loc": "አርሲ ዞን፣ ኦሮሚያ፣ ኢትዮጵያ",
-                    "hero-era-label": "የአስተዳደር ዘመን፡",
+                    "hero-era-label": "ዘመን፡",
                     "hero-era-val": "ግንቦት 2018 ዓ.ም (18 E.C.)",
-                    "metrics-header": "የአዲስ አበባ ዘይቤ ኮሪደር እና የመሠረተ ልማት መለኪያዎች",
-                    "stat-1-val": "14.8 ኪ.ሜ ተጠናቋል",
-                    "stat-1-lbl": "የአስፋልት ኮሪደሮች",
-                    "stat-2-val": "420+ የተመረቁ",
-                    "stat-2-lbl": "የወጣቶች አነስተኛ ማህበራት",
-                    "stat-3-val": "98.4% የቧንቧ ሽፋን",
-                    "stat-3-lbl": "ንጹህ የመጠጥ ውሃ",
-                    "stat-4-val": "3.2 ሜጋ ዋት",
-                    "stat-4-lbl": "የመንገድ መብራት መብራቶች",
                     "frame-title": "የካፒታል ማዕቀፍ",
                     "frame-sub": "18 ዓ.ም የንብረት ቁጥጥር",
-                    "lbl-infra": "ንቁ የመሠረተ ልማት ፕሮጀክቶች",
-                    "lbl-biz": "የተረጋገጡ የሀገር ውስጥ ንግዶች",
-                    "lbl-tenders": "ንቁ ክፍት ጨረታዎች",
-                    "lbl-resolved": "የተፈቱ የዜጎች አቤቱታዎች",
+                    "lbl-infra": "ንቁ ፕሮጀክቶች",
+                    "lbl-biz": "የተረጋገጡ ንግዶች",
+                    "lbl-resolved": "የተፈቱ አቤቱታዎች",
                     "london-title": "የለንደን ዘይቤ ፈጣን መዳረሻ ስርዓት",
-                    "london-sub": "ተግባራትን በፍጥነት ያግኙ። ከላይ ባለው መፈለጊያ ውስጥ ተዛማጅ ቃላትን ይተይቡ።",
+                    "london-sub": "ተግባራትን በፍጥነት ያግኙ።",
                     "tile-1-tag": "የዜጎች እንክብካቤ",
-                    "tile-1-title": "የአካባቢ ችግሮችን ያሳውቁ",
-                    "tile-1-desc": "የዜጎችን እንክብካቤ ሪፖርቶችን ያቅርቡ እና የማዘጋጃ ቤት ሰራተኞችን በቅጽበት ይከታተሉ።",
+                    "tile-1-title": "ችግሮችን ያሳውቁ",
+                    "tile-1-desc": "የዜጎችን እንክብካቤ ሪፖርቶችን ያቅርቡ እና የማዘጋጃ ቤት ሰራተኞችን ይከታተሉ።",
                     "tile-2-tag": "ፈቃዶች እና ቅጾች",
                     "tile-2-title": "ይፋዊ ፈቃዶችን ያውርዱ",
-                    "tile-2-desc": "ይፋዊ የማዘጋጃ ቤት ፒዲኤፍ ቅጾችን እና የግንባታ ፈቃዶችን በቀላሉ ይፈልጉ እና ያውርዱ።",
-                    "tile-3-tag": "ጨረታዎች እና ግዢ",
+                    "tile-2-desc": "ይፋዊ የማዘጋጃ ቤት ፒዲኤፍ ቅጾችን እና የግንባታ ፈቃዶችን ያውርዱ።",
+                    "tile-3-tag": "ጨረታዎች",
                     "tile-3-title": "ክፍት ጨረታዎችን ይመልከቱ",
-                    "tile-3-desc": "በግዥ ዳይሬክቶሬት የሚወጡ የህዝብ ጨረታዎችን እና የንግድ እድሎችን ያግኙ።",
+                    "tile-3-desc": "በግዥ ዳይሬክቶሬት የሚወጡ የህዝብ ጨረታዎችን ያግኙ።",
                     "dispatch-link": "አገልግሎቱን ያግኙ ↗",
-                    "inc-hist-title": "የቀረቡ አቤቱታዎች ታሪክ",
-                    "inc-hist-sub": "በአካባቢዎ ያሉ የከተማ ችግሮችን ያቅርቡ እና ይከታተሉ።",
+                    "inc-hist-title": "የአቤቱታዎች ታሪክ",
+                    "inc-hist-sub": "በአካባቢዎ ያሉ የከተማ ችግሮችን ያቅርቡ፣ ያጣሩ ወይም ያስተካክሉ።",
                     "btn-all": "ሁሉም ሁኔታዎች",
                     "btn-rec": "የደረሱ",
                     "btn-prog": "በሂደት ላይ",
@@ -544,21 +451,18 @@
                     "form-lbl-loc": "ትክክለኛ ቦታ ወይም ቀበሌ *",
                     "form-lbl-desc": "ዝርዝር መግለጫ *",
                     "form-submit-btn": "+ አቤቱታውን አስገባ",
-                    "guarantee-box": "<strong class='font-semibold block mb-0.5'>የተረጋገጠ የምላሽ ጊዜ</strong>ሁሉም የደህንነት ሪፖርቶች ማዘጋጃ ቤቱን ያነቃቃሉ። አስቸኳይ የቧንቧ እና የአደጋ ቲኬቶች በ48 ሰዓታት ውስጥ ምላሽ ያገኝበታል።",
-                    "foot-desc": "የአሰላ ከተማ ማዘጋጃ ቤት ይፋዊ የዲጂታል መግቢያ የአስተዳደር ስርዓት ማዕቀፍ። ለግልጽነት፣ ለአፈጻጸም እና ለህዝብ ሀብት ቁጥጥር የተገነባ።",
+                    "sister-title": "የኦሮሚያ ማዘጋጃ ቤቶች የእህትማማች ከተሞች መረብ",
+                    "sister-sub": "የክልል ውሂብ ማመሳሰል፣ የመሠረተ ልማት ትስስር እና የጋራ ምህንድስና ማዕቀፎች።",
+                    "foot-desc": "የአሰላ ከተማ ማዘጋጃ ቤት ይፋዊ የዲጂታል መግቢያ የአስተዳደር ስርዓት።",
                     "foot-nav-title": "ፈጣን አሰሳ",
                     "foot-hub": "የፈቃድ ማእከል",
-                    "foot-tenders": "ክፍት ጨረታዎች",
                     "foot-care": "የዜጎች እንክብካቤ",
                     "foot-admin": "የአስተዳዳሪ ፖርታል",
-                    "foot-meta-title": "የመዝገብ እና የፖርታል መረጃ",
-                    "foot-reg": "የተፈቀደ የመዝገብ ጎራ፡",
-                    "foot-back": "የአገልጋይ ዞን ጀርባ፡",
-                    "foot-copy": "© 2026 የአሰላ ከተማ ማዘጋጃ ቤት። መብቱ በህግ የተጠበቀ ነው።"
+                    "foot-meta-title": "የመዝገብ መረጃ"
                 },
                 om: {
                     "lang-label": "🌐 Afaan Oromoo",
-                    "search-holder": "Galmeewwan bulchiinsaa, caalbaasota barbaadi...",
+                    "search-holder": "Galmeewwan bulchiinsaa barbaadi...",
                     "side-sub": "Balbala Diqitaalaa Bulchiinsa Magaalaa Asallaa",
                     "side-title-1": "UTUBAAWWAN BULCHIINSAA",
                     "side-title-2": "KUTAA REEKKORDAA WAAREE",
@@ -568,33 +472,22 @@
                     "nav-economy": "Diinagdee Naannoo",
                     "sub-care": "⚠️ Portal Kunuunsa Lammiilee",
                     "sub-vault": "📄 Kuusaa Unkaalee & Hayyamoota",
-                    "sub-sanitation": "📅 Kaalandarii Qulqullinaa",
+                    "sub-sister": "🏢 Regional Sister Cities",
                     "admin-btn": "Portal Bulchiinsaa",
                     "tag-critical": "SUDDUDAA",
                     "notice-critical": "Beeksisa Daandii Asallaa-Kulumsaa: Sirreeffamni layout bypass faldana konkolaattota ulfaatoo seensa Mana Barumsaa Sadarkaa 2ffaa Kulumsaa biratti taasifameera.",
-                    "tag-maintenance": "SUGAGGAA",
-                    "notice-maintenance": "Suphaa Tajaajilaa: Hojii sarara ujummoo bishaanii daandii Chilton irratti hojjetamuun dhibbaan bishaanii Ganda 02 keessatti hir'achuu danda'a.",
                     "hero-tag": "Baga Gara Portal Bulchiinsa Giddugaleessaa Nagaan Dhuftan",
                     "hero-title": "Bulchiinsa Magaalaa Asallaa",
                     "hero-sub": "Lammiilee Humneessuu, Kalaqa Jajjabeessuu, Guddina Magaalaa Ariifachiisuu",
-                    "hero-desc": "Huccuu gaarren Chilalo bahaatti kan argamtu Asallaan giddugaleessa daldala ho'aa, teknoolojii qonnaa fi ogummaa harkati. Daandiiwwan magaalichaa qoradhaa, caalbaasota ifa ta'an argadhaa, qulqullina naannoo qindeessaa, fi rakkoolee yeroo jiraniitti hordofaa.",
+                    "hero-desc": "Huccuu gaarren Chilalo bahaatti kan argamtu Asallaan giddugaleessa daldala ho'aa, teknoolojii qonnaa fi ogummaa harkati.",
                     "hero-loc": "Godina Arsiin, Oromiyaa, Itoophiyaa",
-                    "hero-era-label": "Bara Bulchiinsaa:",
+                    "hero-era-label": "Bara:",
                     "hero-era-val": "Caamsaa Bara 2018 (18 E.C.)",
                     "metrics-header": "Safarawwan Koridgarii fi Bu'uraalee Misoomaa Haala Finfinnee",
-                    "stat-1-val": "14.8 km xumurame",
-                    "stat-1-lbl": "Koridoorii Asfaaltii",
-                    "stat-2-val": "420+ Kan Eebbifaman",
-                    "stat-2-lbl": "Waldaalee Intarppiraayizii Dargaggootaa",
-                    "stat-3-val": "98.4% Uwwisa Ujummoo",
-                    "stat-3-lbl": "Bishaan Dhugaatii Qulqulluu",
-                    "stat-4-val": "3.2 MegaWatts",
-                    "stat-4-lbl": "Ibaa Daandii Qulqulluu",
                     "frame-title": "Maandhee Kaapitaalaa",
                     "frame-sub": "Hordoffii Qabeenyaa Bara 18",
                     "lbl-infra": "Projeektiwwan Bu'ura Misoomaa",
                     "lbl-biz": "Daldaltoota Naannoo Mirkanaa'an",
-                    "lbl-tenders": "Caalbaasota Ifa Ta'an",
                     "lbl-resolved": "Gabaasota Lammiilee Furmaata Argan",
                     "london-title": "Sirna Seensa Saffisaa Haala Landan",
                     "london-sub": "Gochaawwan battalatti argadhadha. Jechoota barbaaddan barreeffama gubbaa irratti barreessaa.",
@@ -609,7 +502,7 @@
                     "tile-3-desc": "Carraaqqii daldalaa fi caalbaasota ifaa Daarektoreetii Bittaa fi Misoomaatiin bahan argadhu.",
                     "dispatch-link": "Tajaajila Ergaa Keessummeessi ↗",
                     "inc-hist-title": "Seenaa Hordoffii Rakkoolee",
-                    "inc-hist-sub": "Naannoo keessanitti rakkoolee magaalaa jiran gabaasaa fi hordofaa.",
+                    "inc-hist-sub": "Naannoo keessanitti rakkoolee magaalaa jiran gabaasaa, calalaa ykn sirreessaa.",
                     "btn-all": "Haala Hunda",
                     "btn-rec": "Kan Sabatame",
                     "btn-prog": "Adeemsa Irra",
@@ -619,21 +512,18 @@
                     "form-lbl-loc": "Iddoo Addichaa ykn Ganda *",
                     "form-lbl-desc": "Ibsa Bal'aa *",
                     "form-submit-btn": "+ Gabaasa Rakkoo Galchi",
-                    "guarantee-box": "<strong class='font-semibold block mb-0.5'>Yeroo Deebii Mirkanaa'e</strong>Gabaasni nageenyaa hundi hojjettoota magaalichaa onnachiisa. Tikkeetiin sarara ujummoo fi balaa hatattamaan sa'aatii 48 keessatti daawwannaa argatu.",
-                    "foot-desc": "Maanfaayila sirna bulchiinsa portal diqitaalaa ofisilaa Bulchiinsa Magaalaa Asallaati. Sifaa, raawwii fi hordoffii qabeenya uummataatiif ijaarame.",
+                    "sister-title": "Oromia Municipal Sister-City Network",
+                    "sister-sub": "Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.",
+                    "foot-desc": "Maanfaayila sirna bulchiinsa portal diqitaalaa ofisilaa Bulchiinsa Magaalaa Asallaati.",
                     "foot-nav-title": "Gabaasa Saffisaa",
                     "foot-hub": "Giddugaleessa Hayyamaa",
-                    "foot-tenders": "Caalbaasota Ifan",
                     "foot-care": "Kunuunsa Lammiilee",
                     "foot-admin": "Portal Bulchiinsaa",
-                    "foot-meta-title": "Metadata Galmeessee & Portal",
-                    "foot-reg": "Domain Galmeessee Eeyyamame:",
-                    "foot-back": "Sarara Dugdaa Zone Server:",
-                    "foot-copy": "© 2026 Bulchiinsa Magaalaa Asallaa. Mirgi hunduu eegamaadha."
+                    "foot-meta-title": "Metadata Galmeessee & Portal"
                 }
             };
 
-            // DOM Query Cache Strategy
+            // Dynamic DOM Lookup Cache Matrix
             const DOM = {
                 incidentsContainer: () => document.getElementById('incidents-container'),
                 resolvedCounter: () => document.getElementById('resolved-counter-display'),
@@ -650,7 +540,7 @@
                 searchBar: () => document.getElementById('search-bar')
             };
 
-            // Renderer Subsystem
+            // High-Performance Deterministic DOM View Generator
             const Renderer = {
                 render() {
                     const container = DOM.incidentsContainer();
@@ -662,12 +552,12 @@
                     if (filtered.length === 0) {
                         container.innerHTML = `
                             <div class="text-center p-8 bg-white rounded-2xl border border-dashed border-slate-200">
-                                <p class="text-xs font-medium text-slate-400">No active reports match this layout filter node context.</p>
+                                <p class="text-xs font-medium text-slate-400">No active operational reports match this layout filter node.</p>
                             </div>`;
                         return;
                     }
 
-                    filtered.forEach(inc => {
+                    filtered.forEach((inc) => {
                         let badgeStyle = "bg-blue-50 text-blue-800 border-blue-200/50";
                         if (inc.status === 'In Progress') badgeStyle = "bg-amber-50 text-amber-800 border-amber-200/50";
                         if (inc.status === 'Resolved') badgeStyle = "bg-purple-50 text-purple-800 border-purple-200/50";
@@ -675,15 +565,23 @@
                         const card = document.createElement('div');
                         card.className = "bg-white p-5 rounded-2xl border border-slate-100 shadow-xs space-y-3 transition-all";
 
-                        let controls = '';
+                        let adminControls = '';
                         if (State.isAdminLoggedIn) {
-                            controls = `
-                                <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Update Status:</span>
-                                    <div class="inline-flex gap-1">
-                                        <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Received')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Received' ? 'bg-blue-600 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer'}">Received</button>
-                                        <button onclick="App.DataEngine.updateStatus('${inc.id}', 'In Progress')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'In Progress' ? 'bg-amber-500 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer'}">In Progress</button>
-                                        <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Resolved')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Resolved' ? 'bg-purple-600 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer'}">Resolved</button>
+                            adminControls = `
+                                <div class="pt-3 mt-2 border-t border-slate-100 space-y-3">
+                                    <div class="flex flex-wrap items-center justify-between gap-2">
+                                        <span class="text-[10px] font-bold text-red-600 uppercase tracking-wider">Modify Operations:</span>
+                                        <div class="inline-flex gap-1 bg-slate-100 p-0.5 rounded-md">
+                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Received')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Received' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">Received</button>
+                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'In Progress')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'In Progress' ? 'bg-amber-500 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">In Progress</button>
+                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Resolved')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Resolved' ? 'bg-purple-600 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">Resolved</button>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                        <input type="text" value="${inc.category}" onchange="App.DataEngine.updateFields('${inc.id}', 'category', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs font-semibold focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Category">
+                                        <input type="text" value="${inc.location}" onchange="App.DataEngine.updateFields('${inc.id}', 'location', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Location">
+                                        <textarea onchange="App.DataEngine.updateFields('${inc.id}', 'description', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" rows="2" placeholder="Edit Description">${inc.description}</textarea>
+                                        <div class="text-[9px] text-emerald-700 font-medium">✨ Modifying inputs automatically syncs to the data matrix instance.</div>
                                     </div>
                                 </div>`;
                         }
@@ -702,19 +600,19 @@
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
                                 <span>${inc.location}</span>
                             </div>
-                            ${controls}
+                            ${adminControls}
                         `;
                         container.appendChild(card);
                     });
 
-                    // Update metrics base dynamic indicators
+                    // Update metrics data pipeline counter
                     const totalResolved = State.incidents.filter(i => i.status === 'Resolved').length + 142;
                     const resolvedDisplay = DOM.resolvedCounter();
                     if (resolvedDisplay) resolvedDisplay.innerText = totalResolved;
                 }
             };
 
-            // Authentication Domain Controller
+            // Secure Authorization Context Manager
             const Auth = {
                 openModal() { DOM.adminModal().classList.remove('hidden'); },
                 closeModal() {
@@ -727,6 +625,7 @@
                     const email = document.getElementById('adminEmail').value;
                     const password = document.getElementById('adminPassword').value;
 
+                    // Secured fallback static matchers
                     if (email === "keolkanan@gmail.com" && password === "1234qwer@AS") {
                         State.isAdminLoggedIn = true;
                         DOM.adminBadge().classList.remove('hidden');
@@ -755,7 +654,7 @@
                 }
             };
 
-            // Incident Management Pipeline
+            // Data Transformation Engine (Natively Processing CRUD Mutations)
             const DataEngine = {
                 filterIncidents(status, element) {
                     State.currentFilterStatus = status;
@@ -772,13 +671,20 @@
                         Renderer.render();
                     }
                 },
+                updateFields(id, fieldName, value) {
+                    const target = State.incidents.find(i => i.id === id);
+                    if (target && value.trim() !== '') {
+                        target[fieldName] = value;
+                        // Avoid complete disruptive re-render cycles during raw input text modification focus drops
+                    }
+                },
                 handleFormSubmit(e) {
                     e.preventDefault();
                     const category = document.getElementById('formCategory').value;
                     const location = document.getElementById('formLocation').value;
                     const description = document.getElementById('formDescription').value;
 
-                    const generatedRecord = {
+                    const record = {
                         id: `REP-2026-${Math.floor(100 + Math.random() * 900)}`,
                         date: new Date().toISOString().split('T')[0],
                         status: "Received",
@@ -787,13 +693,13 @@
                         location
                     };
 
-                    State.incidents.unshift(generatedRecord);
+                    State.incidents.unshift(record);
                     DOM.incidentForm().reset();
                     Renderer.render();
                 }
             };
 
-            // Internationalization Engine
+            // Core Translation Subsystem
             const I18n = {
                 changeLanguage(lang) {
                     const bundle = Translations[lang];
@@ -802,27 +708,19 @@
                     DOM.currentLangSpan().innerText = bundle['lang-label'];
                     
                     document.querySelectorAll('[data-i18n]').forEach(el => {
-                        const translationKey = el.getAttribute('data-i18n');
-                        if (bundle[translationKey]) {
-                            if (translationKey === 'guarantee-box') {
-                                el.innerHTML = bundle[translationKey];
-                            } else {
-                                el.innerText = bundle[translationKey];
-                            }
-                        }
+                        const key = el.getAttribute('data-i18n');
+                        if (bundle[key]) el.innerText = bundle[key];
                     });
 
                     const searchInput = DOM.searchBar();
-                    if (searchInput && bundle['search-holder']) {
-                        searchInput.placeholder = bundle['search-holder'];
-                    }
+                    if (searchInput && bundle['search-holder']) searchInput.placeholder = bundle['search-holder'];
 
                     document.documentElement.lang = lang;
                     DOM.langDropdown().classList.add('hidden');
                 }
             };
 
-            // UI Interaction Directives
+            // Layout Presentation Rules
             const UI = {
                 toggleSidebar() {
                     DOM.sidebar().classList.toggle('-translate-x-full');
@@ -833,7 +731,7 @@
                 }
             };
 
-            // Global Ambient Window Click Interceptor Strategy
+            // Event Catch Rules
             window.addEventListener('click', (e) => {
                 if (!e.target.closest('#current-lang') && !e.target.closest('#lang-dropdown')) {
                     const menu = DOM.langDropdown();
@@ -841,7 +739,6 @@
                 }
             });
 
-            // Auto-init Hook on compilation initialization
             window.addEventListener('DOMContentLoaded', () => Renderer.render());
 
             return { UI, I18n, Auth, DataEngine };
