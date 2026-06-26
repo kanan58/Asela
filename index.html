@@ -247,6 +247,10 @@
           <p id="formDescription-error" class="text-[11px] text-red-600 mt-1 hidden" role="alert">Please enter a valid description (not blank).</p>
         </div>
         <button type="submit" data-i18n="form-submit-btn" class="w-full btn-forest font-medium py-2.5 rounded-lg text-sm shadow-xs cursor-pointer">+ Submit Incident Report</button>
+        <div id="form-success-msg" class="hidden items-start gap-2 p-3 rounded-lg text-xs font-medium" style="background:#E7EEE7;color:#0E3B2E;border:1px solid #C9DCC9;" role="status" aria-live="polite">
+          <span aria-hidden="true">✅</span>
+          <span id="form-success-text" data-i18n="form-success-msg">Your report was submitted successfully and sent to the municipal admin team for review.</span>
+        </div>
       </form>
     </div>
   </section>
@@ -348,6 +352,7 @@ const App = (() => {
       "inc-hist-title":"Incident Tracker History","inc-hist-sub":"Submit, filter, or natively modify live regional layout incidents.",
       "btn-all":"All Statuses","btn-rec":"Received","btn-prog":"In Progress","btn-res":"Resolved",
       "form-header":"Submit New Incident","form-lbl-cat":"Incident Category","form-lbl-loc":"Location / Kebele *","form-lbl-desc":"Detailed Description *","form-submit-btn":"+ Submit Incident Report",
+      "form-success-msg":"Your report was submitted successfully and sent to the municipal admin team for review.",
       "sister-title":"Oromia Municipal Sister-City Network","sister-sub":"Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.",
       "foot-desc":"Official digital gateway architecture for the Municipality of Asella Town. Engineered for modular optimization and runtime execution auditing.",
       "foot-nav-title":"Quick Navigation","foot-hub":"Permit Hub","foot-care":"Incident Care","foot-admin":"Admin Portal","foot-meta-title":"Registry & Portal Metadata",
@@ -368,6 +373,7 @@ const App = (() => {
       "inc-hist-title":"የቅሬታ መዝገብ ታሪክ","inc-hist-sub":"በአካባቢዎ ያሉ ችግሮችን ያስገቡ፣ ያጣሩ ወይም ቀጥታ ያስተካክሉ።",
       "btn-all":"ሁሉም ሁኔታዎች","btn-rec":"የደረሱ","btn-prog":"በሂደት ላይ","btn-res":"የተፈቱ",
       "form-header":"አዲስ ቅሬታ ያስገቡ","form-lbl-cat":"የችግር ምድብ","form-lbl-loc":"ትክክለኛ አድራሻ ወይም ቀበሌ *","form-lbl-desc":"ሙሉ መግለጫ *","form-submit-btn":"+ ቅሬታውን አስገባ",
+      "form-success-msg":"ቅሬታዎ በትክክል ገብቷል እና ለማዘጋጃ ቤት አስተዳዳሪ ቡድን ለክትትል ተልኳል።",
       "sister-title":"የኦሮሚያ ማዘጋጃ ቤቶች የእህትማማችነት መረብ","sister-sub":"የክልል መረጃ ትስስር፣ የመሠረተ ልማት ትብብር እና የጋራ ምህንድስና ስልት ልውውጥ።",
       "foot-desc":"የአሰላ ከተማ ማዘጋጃ ቤት ይፋዊ ዲጂታል አስተዳደር ስርዓት፣ ለቀልጣፋ አሠራርና ለግልጽነት የተዘጋጀ።",
       "foot-nav-title":"ፈጣን ማውጫ","foot-hub":"የፈቃድ መስኮት","foot-care":"የነዋሪዎች እንክብካቤ","foot-admin":"የአስተዳዳሪ መግቢያ","foot-meta-title":"የመዝገብ መረጃ",
@@ -388,6 +394,7 @@ const App = (() => {
       "inc-hist-title":"Seenaa Galmee Komii","inc-hist-sub":"Rakkoo naannoo keessanii galchaa, calalchisaa ykn kallattiin sirreessaa.",
       "btn-all":"Haala Hunda","btn-rec":"Kan Qaqqabe","btn-prog":"Adeemsa Irra","btn-res":"Kan Furame",
       "form-header":"Komii Haaraa Galchaa","form-lbl-cat":"Gosa Rakkoo","form-lbl-loc":"Bakka Sirrii ykn Ganda *","form-lbl-desc":"Ibsa Guutuu *","form-submit-btn":"+ Komii Galchaa",
+      "form-success-msg":"Komiin keessan milkaa'inaan galmaa'eera, gara garee bulchiinsa magaalaattis ergameera.",
       "sister-title":"Sirna Walitti Hidhamiinsa Magaalota Obboleyyan Oromiyaa","sister-sub":"Walitti fufiinsa odeeffannoo naannolee, hidhata daldala bu'uuraalee misoomaa, fi qooddattoota injinarummaa.",
       "foot-desc":"Sirna seensa diijitaalaa ofiisii Bulchiinsa Magaalaa Asallaa, hojii ariifachiisaa fi ifa ta'eef qophaa'e.",
       "foot-nav-title":"Daawwannaa Saffisaa","foot-hub":"Giddugala Hayyamaa","foot-care":"Kunuunsa Uummataa","foot-admin":"Seensa Bulchaa","foot-meta-title":"Odeeffannoo Galmee",
@@ -550,9 +557,21 @@ const App = (() => {
       };
       State.incidents.unshift(record);
       Persistence.saveIncidents();
-      DOM.incidentForm()?.reset?.();
       document.getElementById('incidentForm').reset();
       Renderer.render();
+      DataEngine.showSuccessMessage();
+    },
+    showSuccessMessage(){
+      const msg = document.getElementById('form-success-msg');
+      if(!msg) return;
+      msg.classList.remove('hidden');
+      msg.classList.add('flex');
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      clearTimeout(DataEngine._successTimer);
+      DataEngine._successTimer = setTimeout(() => {
+        msg.classList.add('hidden');
+        msg.classList.remove('flex');
+      }, 6000);
     }
   };
 
