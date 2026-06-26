@@ -15,77 +15,79 @@
 </head>
 <body class="bg-slate-50 text-slate-800 relative min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
 
-    <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-[#064e3b] text-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between">
+    <div id="accessibility-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <nav id="sidebar" aria-label="Main Navigation Sidebar" class="fixed inset-y-0 left-0 w-80 bg-[#064e3b] text-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between">
         <div class="p-6">
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="text-amber-400 font-bold text-lg leading-tight">Bulchiinsa Magaalaa Asallaa</h2>
                     <p data-i18n="side-sub" class="text-xs text-emerald-200">Asella Municipality Digital Gateway</p>
                 </div>
-                <button onclick="App.UI.toggleSidebar()" class="p-2 rounded-lg bg-emerald-900/50 hover:bg-emerald-800 text-white transition-colors" aria-label="Close Sidebar">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <button onclick="App.UI.toggleSidebar()" class="p-2 rounded-lg bg-emerald-900/50 hover:bg-emerald-800 text-white transition-colors cursor-pointer" aria-label="Close Sidebar">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
             
             <div class="mb-6">
                 <span data-i18n="side-title-1" class="text-xs font-semibold uppercase tracking-wider text-emerald-300 block mb-3">GOVERNANCE PILLARS</span>
-                <nav class="space-y-1">
+                <div class="space-y-1">
                     <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-lg bg-emerald-800 text-white font-medium transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                         <span data-i18n="nav-citizen">Citizen Services</span>
                     </a>
                     <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                         <span data-i18n="nav-infra">City Infrastructure</span>
                     </a>
                     <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                         <span data-i18n="nav-economy">Local Economy</span>
                     </a>
-                </nav>
+                </div>
             </div>
 
             <div>
                 <span data-i18n="side-title-2" class="text-xs font-semibold uppercase tracking-wider text-emerald-300 block mb-3">CORE SUB-SECTIONS</span>
-                <nav class="space-y-1">
+                <div class="space-y-1">
                     <a href="#incident-tracker" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-care">⚠️ Citizen Care Portal</span></a>
                     <a href="#quick-access" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-vault">📄 Form Vault & Permits</span></a>
                     <a href="#sister-cities" onclick="App.UI.toggleSidebar()" class="flex items-center space-x-3 px-4 py-2 rounded-lg text-emerald-100 hover:bg-emerald-800/50 hover:text-white text-sm transition-all"><span data-i18n="sub-sister">🏢 Regional Sister Cities</span></a>
-                </nav>
+                </div>
             </div>
         </div>
         <div data-i18n="side-footer" class="p-6 border-t border-emerald-800 text-center text-xs text-emerald-300">
             Asella Urban Governance © 2026
         </div>
-    </div>
+    </nav>
     <div id="sidebar-overlay" onclick="App.UI.toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden transition-opacity duration-300"></div>
 
     <header class="bg-white/95 sticky top-0 z-30 shadow-xs backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
-                <button onclick="App.UI.toggleSidebar()" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button onclick="App.UI.toggleSidebar()" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
                 <a href="#" class="text-xl font-bold tracking-tight text-[#064e3b]">asela<span class="text-amber-500">.et</span></a>
             </div>
 
             <div class="hidden md:flex flex-1 max-w-md relative">
                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </span>
                 <input type="text" id="search-bar" placeholder="Search administrative records, tenders..." class="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#064e3b] text-sm transition-all">
             </div>
 
             <div class="flex items-center space-x-3">
                 <div class="relative">
-                    <button onclick="App.UI.toggleLangDropdown()" class="flex items-center space-x-1.5 px-3 py-2 rounded-lg border border-slate-200 text-sm font-medium hover:bg-slate-50 text-slate-700">
+                    <button id="lang-btn" onclick="App.UI.toggleLangDropdown()" aria-haspopup="true" aria-expanded="false" class="flex items-center space-x-1.5 px-3 py-2 rounded-lg border border-slate-200 text-sm font-medium hover:bg-slate-50 text-slate-700 cursor-pointer">
                         <span id="current-lang">🌐 English</span>
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div id="lang-dropdown" class="absolute right-0 mt-1 w-44 bg-white rounded-xl shadow-xl border border-slate-100 hidden py-1 z-50">
-                        <button onclick="App.I18n.changeLanguage('en')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"><span>English</span><span class="text-xs text-slate-400">English</span></button>
-                        <button onclick="App.I18n.changeLanguage('am')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"><span>አማርኛ</span><span class="text-xs text-slate-400">Amharic</span></button>
-                        <button onclick="App.I18n.changeLanguage('om')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"><span>Afaan Oromoo</span><span class="text-xs text-slate-400">Oromo</span></button>
+                        <button onclick="App.I18n.changeLanguage('en')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 cursor-pointer"><span>English</span><span class="text-xs text-slate-400">English</span></button>
+                        <button onclick="App.I18n.changeLanguage('am')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 cursor-pointer"><span>አማርኛ</span><span class="text-xs text-slate-400">Amharic</span></button>
+                        <button onclick="App.I18n.changeLanguage('om')" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 cursor-pointer"><span>Afaan Oromoo</span><span class="text-xs text-slate-400">Oromo</span></button>
                     </div>
                 </div>
                 <button id="admin-portal-btn" onclick="App.Auth.openModal()" data-i18n="admin-btn" class="bg-slate-900 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">Admin Portal</button>
@@ -93,25 +95,25 @@
         </div>
     </header>
 
-    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden flex items-center justify-center p-4">
+    <div id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 border border-slate-100 shadow-2xl space-y-4 relative">
-            <button onclick="App.Auth.closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            <button onclick="App.Auth.closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1 rounded-lg cursor-pointer" aria-label="Close Authentication Screen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
             <div class="text-center">
-                <h3 class="serif-heading text-2xl font-bold text-slate-900">Municipal Authentication</h3>
+                <h3 id="modal-title" class="serif-heading text-2xl font-bold text-slate-900">Municipal Authentication</h3>
                 <p class="text-xs text-slate-500 mt-1">Access secure system dashboards & inline modifier controls.</p>
             </div>
             <form id="adminLoginForm" onsubmit="App.Auth.handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Email Secure ID</label>
+                    <label for="adminEmail" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Email Secure ID</label>
                     <input type="email" id="adminEmail" required placeholder="name@asela.et" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Passkey Keyframe</label>
+                    <label for="adminPassword" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Passkey Keyframe</label>
                     <input type="password" id="adminPassword" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
                 </div>
-                <div id="login-error" class="text-xs text-red-600 font-medium hidden">⚠️ Invalid secure authorization credentials matching this node.</div>
+                <div id="login-error" class="text-xs text-red-600 font-medium hidden" role="alert">⚠️ Invalid secure authorization credentials matching this node.</div>
                 <button type="submit" class="w-full bg-[#064e3b] hover:bg-emerald-900 text-white font-medium py-2.5 rounded-lg text-sm transition-colors shadow-xs cursor-pointer">
                     Secure Login ➔
                 </button>
@@ -120,22 +122,22 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 mt-4 space-y-2">
-        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl flex items-start justify-between">
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl flex items-start justify-between" role="region" aria-label="Critical Notice Banner">
             <div class="flex space-x-3">
                 <span data-i18n="tag-critical" class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mt-0.5 tracking-wider">CRITICAL</span>
-                <p data-i18n="notice-critical" class="text-sm text-red-900 font-medium">Asella-Kulumsa Route Notice: Heavy vehicle bypass layout adjustment near Kulumsa Secondary School entry.</p>
+                <p id="critical-banner-text" data-i18n="notice-critical" class="text-sm text-red-900 font-medium">Asella-Kulumsa Route Notice: Heavy vehicle bypass layout adjustment near Kulumsa Secondary School entry.</p>
             </div>
         </div>
     </div>
 
-    <section class="max-w-7xl mx-auto px-4 mt-6">
+    <section class="max-w-7xl mx-auto px-4 mt-6" aria-label="Municipal Introduction Panel">
         <div class="relative rounded-3xl overflow-hidden bg-slate-950 text-white min-h-[420px] flex items-end shadow-xl">
-            <img src="https://images.unsplash.com/photo-1546482502-042c98b3f88d?auto=format&fit=crop&w=1600&q=80" alt="Asella Town Backdrop" class="absolute inset-0 w-full h-full object-cover opacity-40 transform scale-100 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1546482502-042c98b3f88d?auto=format&fit=crop&w=1600&q=80" alt="Asella Town Backdrop near Mount Chilalo foothills" class="absolute inset-0 w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
             
             <div class="relative z-10 p-6 md:p-12 w-full max-w-4xl space-y-4">
                 <div class="inline-flex items-center space-x-2 bg-emerald-950/80 backdrop-blur-md border border-emerald-500/30 px-4 py-1.5 rounded-full">
-                    <span class="w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
+                    <span class="w-2 h-2 bg-amber-400 rounded-full animate-ping" aria-hidden="true"></span>
                     <span data-i18n="hero-tag" class="text-xs font-semibold uppercase tracking-wider text-emerald-300">Welcome to the Central Administrative Portal</span>
                 </div>
                 <h1 data-i18n="hero-title" class="serif-heading text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">Bulchiinsa Magaalaa Asallaa</h1>
@@ -143,17 +145,36 @@
                 <p data-i18n="hero-desc" class="text-slate-200 text-sm md:text-base leading-relaxed font-light">Nestled at the eastern foothills of Mount Chilalo, Asella is a hub of active commerce, agricultural technology, and vocational craftsmanship. Control real-time tracking, update municipal records, and synchronize infrastructure alerts instantly.</p>
                 <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center gap-4 text-xs text-slate-300">
                     <span data-i18n="hero-loc" class="font-medium text-white">Arsi Zone, Oromia, Ethiopia</span>
-                    <span class="text-slate-600">•</span>
+                    <span class="text-slate-600" aria-hidden="true">•</span>
                     <span class="text-slate-300"><span data-i18n="hero-era-label">Era:</span> <strong data-i18n="hero-era-val" class="text-white">May 2026 Admin Year (18 E.C.)</strong></span>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="admin-dashboard-view" class="max-w-7xl mx-auto px-4 mt-8 hidden">
+        <div class="bg-gradient-to-r from-emerald-900 to-slate-900 p-6 rounded-3xl text-white shadow-xl space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="serif-heading text-2xl font-bold text-amber-400">Bulchiinsa Magaalaa Asallaa - Admin Command Space</h2>
+                    <p class="text-xs text-emerald-200">System modification pipeline enabled. Authenticated node actions map instantly.</p>
+                </div>
+                <div class="bg-emerald-950/60 rounded-xl px-4 py-2 border border-emerald-500/20 max-w-xs text-right">
+                    <span class="text-[10px] block text-amber-400 font-bold tracking-wider uppercase">System Identity</span>
+                    <span class="text-xs font-mono truncate block text-slate-100">keolkanan@gmail.com</span>
+                </div>
+            </div>
+            <div class="mt-4 border border-emerald-500/20 rounded-2xl overflow-hidden bg-slate-950 max-h-48 flex items-center justify-center relative">
+                <img src="IMG_5664.jpeg" alt="System Node Dashboard Asset Map IMG_5664" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/80 via-transparent to-slate-950/80"></div>
+                <span class="absolute bottom-3 left-4 text-[11px] font-mono text-emerald-300 bg-slate-900/80 px-2 py-1 rounded">System Asset Identity Trace: IMG_5664.jpeg</span>
+            </div>
+        </div>
+    </div>
+
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-        <section class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            
+        <section class="grid grid-cols-1 lg:grid-cols-4 gap-6" aria-label="Framework Summary Blocks">
             <div class="lg:col-span-1 bg-white p-6 rounded-3xl border border-slate-100 shadow-xs space-y-6">
                 <div>
                     <h3 data-i18n="frame-title" class="font-bold text-lg text-slate-900 tracking-tight">Capital Framework</h3>
@@ -210,7 +231,7 @@
             </div>
         </section>
 
-        <section id="incident-tracker" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section id="incident-tracker" class="grid grid-cols-1 lg:grid-cols-3 gap-8" aria-label="Incident Management Tracking Hub">
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
@@ -220,7 +241,7 @@
                         </div>
                         <p data-i18n="inc-hist-sub" class="text-xs text-slate-500">Submit, filter, or natively modify live regional layout incidents.</p>
                     </div>
-                    <div class="inline-flex rounded-lg bg-slate-200/70 p-1 text-xs font-medium text-slate-600 self-start">
+                    <div role="group" aria-label="Filter status parameters" class="inline-flex rounded-lg bg-slate-200/70 p-1 text-xs font-medium text-slate-600 self-start">
                         <button onclick="App.DataEngine.filterIncidents('all', this)" data-i18n="btn-all" class="px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold cursor-pointer">All Statuses</button>
                         <button onclick="App.DataEngine.filterIncidents('Received', this)" data-i18n="btn-rec" class="px-3 py-1.5 rounded-md cursor-pointer">Received</button>
                         <button onclick="App.DataEngine.filterIncidents('In Progress', this)" data-i18n="btn-prog" class="px-3 py-1.5 rounded-md cursor-pointer">In Progress</button>
@@ -228,18 +249,18 @@
                     </div>
                 </div>
 
-                <div id="incidents-container" class="space-y-3"></div>
+                <div id="incidents-container" class="space-y-3" aria-live="polite"></div>
             </div>
 
             <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-5 self-start">
                 <div class="flex items-center space-x-2 text-[#064e3b]">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <h3 data-i18n="form-header" class="font-bold text-lg text-slate-900">Submit New Incident</h3>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h3 id="form-header-title" data-i18n="form-header" class="font-bold text-lg text-slate-900">Submit New Incident</h3>
                 </div>
                 
-                <form id="incidentForm" onsubmit="App.DataEngine.handleFormSubmit(event)" class="space-y-4">
+                <form id="incidentForm" onsubmit="App.DataEngine.handleFormSubmit(event)" class="space-y-4" aria-labelledby="form-header-title">
                     <div>
-                        <label data-i18n="form-lbl-cat" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Incident Category</label>
+                        <label for="formCategory" data-i18n="form-lbl-cat" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Incident Category</label>
                         <select id="formCategory" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none">
                             <option>Street Light Outage</option>
                             <option>Water Pipeline Leakage</option>
@@ -248,11 +269,11 @@
                         </select>
                     </div>
                     <div>
-                        <label data-i18n="form-lbl-loc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Location / Kebele *</label>
+                        <label for="formLocation" data-i18n="form-lbl-loc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Location / Kebele *</label>
                         <input type="text" id="formLocation" required placeholder="e.g. Kebele 02, Main Rd" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none">
                     </div>
                     <div>
-                        <label data-i18n="form-lbl-desc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Detailed Description *</label>
+                        <label for="formDescription" data-i18n="form-lbl-desc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Detailed Description *</label>
                         <textarea id="formDescription" required rows="3" placeholder="Provide complete infrastructure details..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#064e3b] outline-none"></textarea>
                     </div>
                     <button type="submit" data-i18n="form-submit-btn" class="w-full bg-[#064e3b] hover:bg-emerald-900 text-white font-medium py-2.5 rounded-lg text-sm transition-colors shadow-xs cursor-pointer">+ Submit Incident Report</button>
@@ -260,36 +281,49 @@
             </div>
         </section>
 
-        <section id="sister-cities" class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-6">
+        <section id="sister-cities" class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-6" aria-label="Regional Sister-City Matrix">
             <div>
                 <h3 data-i18n="sister-title" class="serif-heading text-2xl font-bold text-slate-900 tracking-tight">Oromia Municipal Sister-City Network</h3>
                 <p data-i18n="sister-sub" class="text-xs text-slate-500 mt-1">Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
                             <h4 class="font-bold text-slate-900 text-base">Adama City Municipal Portal</h4>
-                            <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Connected Backbone</span>
+                            <span data-i18n="sister-node-active-1" class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Connected Backbone</span>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">Primary logistical sister corridor. Integration focuses on standardizing transit reporting, heavy freight route distribution, and coordinated trade-lane asset allocation.</p>
+                        <p data-i18n="sister-desc-1" class="text-xs text-slate-600 leading-relaxed">Primary logistical sister corridor. Integration focuses on standardizing transit reporting, heavy freight route distribution, and coordinated trade-lane asset allocation.</p>
                     </div>
                     <div class="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs">
-                        <span class="text-slate-400 font-medium">Network Latency: <strong class="text-emerald-600 font-mono">0.4ms</strong></span>
-                        <a href="#" class="text-[#064e3b] font-semibold hover:underline">Access Adama Node ➔</a>
+                        <span class="text-slate-400 font-medium"><span data-i18n="sister-latency-label">Network Latency</span>: <strong class="text-emerald-600 font-mono">0.4ms</strong></span>
+                        <a href="#" data-i18n="sister-link-text-1" class="text-[#064e3b] font-semibold hover:underline">Access Adama Node ➔</a>
                     </div>
                 </div>
                 <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
                             <h4 class="font-bold text-slate-900 text-base">Bishoftu Municipal Network</h4>
-                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Peer Node Active</span>
+                            <span data-i18n="sister-node-active-2" class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Peer Node Active</span>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">Secondary economic sister grid alignment. Co-managing smart public utilities deployment strategies and agricultural tech-transfer databases.</p>
+                        <p data-i18n="sister-desc-2" class="text-xs text-slate-600 leading-relaxed">Secondary economic sister grid alignment. Co-managing smart public utilities deployment strategies and agricultural tech-transfer databases.</p>
                     </div>
                     <div class="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs">
-                        <span class="text-slate-400 font-medium">Sync Rate: <strong class="text-emerald-600 font-mono">Real-time</strong></span>
-                        <a href="#" class="text-[#064e3b] font-semibold hover:underline">Access Bishoftu Node ➔</a>
+                        <span class="text-slate-400 font-medium"><span data-i18n="sister-sync-label">Sync Rate</span>: <strong class="text-emerald-600 font-mono">Real-time</strong></span>
+                        <a href="#" data-i18n="sister-link-text-2" class="text-[#064e3b] font-semibold hover:underline">Access Bishoftu Node ➔</a>
+                    </div>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 id="shashemene-node-title" class="font-bold text-slate-900 text-base">Shashemene Municipal Hub</h4>
+                            <span id="sister-node-active-3" data-i18n="sister-node-active-3" class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">Transit Core Standby</span>
+                        </div>
+                        <p id="sister-desc-3" data-i18n="sister-desc-3" class="text-xs text-slate-600 leading-relaxed">Southern transportation linkage grid. Intersects infrastructure diagnostics tracking, urbanization modeling metrics, and logistics monitoring paths.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-medium"><span data-i18n="sister-latency-label-3">Cluster Hop</span>: <strong class="text-emerald-600 font-mono">1.2ms</strong></span>
+                        <a href="#" id="sister-link-text-3" data-i18n="sister-link-text-3" class="text-[#064e3b] font-semibold hover:underline">Access Shashemene Node ➔</a>
                     </div>
                 </div>
             </div>
@@ -321,24 +355,30 @@
     </footer>
 
     <script>
+        /**
+         * Core Application Architecture - Singleton Controller
+         */
         const App = (() => {
-            // Immutable/Mutable Client-side Central State Data
+            // Internal Application Local Memory Fallbacks
+            const FallbackIncidents = [
+                {
+                    id: "REP-2026-001",
+                    date: "2026-06-25",
+                    status: "In Progress",
+                    category: "Street Light Outage",
+                    description: "The street lights covering the main bypass crossing have been inactive, affecting pedestrian traffic safety.",
+                    location: "Kebele 02, Main Avenue near Bank"
+                }
+            ];
+
+            // Local Memory Runtime Application Configuration Mapping Matrix
             const State = {
                 isAdminLoggedIn: false,
                 currentFilterStatus: 'all',
-                incidents: [
-                    {
-                        id: "REP-2026-001",
-                        date: "2026-06-25",
-                        status: "In Progress",
-                        category: "Street Light Outage",
-                        description: "The street lights covering the main bypass crossing have been inactive, affecting pedestrian traffic safety.",
-                        location: "Kebele 02, Main Avenue near Bank"
-                    }
-                ]
+                incidents: []
             };
 
-            // Translation Context Resources
+            // Enhanced Accurate Translation Resource Asset Blocks
             const Translations = {
                 en: {
                     "lang-label": "🌐 English",
@@ -393,55 +433,68 @@
                     "form-submit-btn": "+ Submit Incident Report",
                     "sister-title": "Oromia Municipal Sister-City Network",
                     "sister-sub": "Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.",
+                    "sister-node-active-1": "Connected Backbone",
+                    "sister-desc-1": "Primary logistical sister corridor. Integration focuses on standardizing transit reporting, heavy freight route distribution, and coordinated trade-lane asset allocation.",
+                    "sister-latency-label": "Network Latency",
+                    "sister-link-text-1": "Access Adama Node ➔",
+                    "sister-node-active-2": "Peer Node Active",
+                    "sister-desc-2": "Secondary economic sister grid alignment. Co-managing smart public utilities deployment strategies and agricultural tech-transfer databases.",
+                    "sister-sync-label": "Sync Rate",
+                    "sister-link-text-2": "Access Bishoftu Node ➔",
+                    "sister-node-active-3": "Transit Core Standby",
+                    "sister-desc-3": "Southern transportation linkage grid. Intersects infrastructure diagnostics tracking, urbanization modeling metrics, and logistics monitoring paths.",
+                    "sister-latency-label-3": "Cluster Hop",
+                    "sister-link-text-3": "Access Shashemene Node ➔",
                     "foot-desc": "Official digital gateway architecture for the Municipality of Asella Town. Engineered for modular optimization and runtime execution auditing.",
                     "foot-nav-title": "Quick Navigation",
                     "foot-hub": "Permit Hub",
                     "foot-care": "Incident Care",
                     "foot-admin": "Admin Portal",
-                    "foot-meta-title": "Registry & Portal Metadata"
+                    "foot-meta-title": "Registry & Portal Metadata",
+                    "foot-copy": "© 2026 Asella Town Municipality. All rights reserved."
                 },
                 am: {
                     "lang-label": "🌐 አማርኛ",
-                    "search-holder": "የአስተዳደር መዝገቦችን ይፈልጉ...",
-                    "side-sub": "የአሰላ ማዘጋጃ ቤት ዲጂታል መግቢያ",
-                    "side-title-1": "የአስተዳደር አምዶች",
+                    "search-holder": "የአስተዳደር መዝገቦችን፣ ጨረታዎችን ይፈልጉ...",
+                    "side-sub": "የአሰላ ማዘጋጃ ቤት ዲጂታል መግቢያ ፖርታል",
+                    "side-title-1": "የአስተዳደር ምሰሶዎች",
                     "side-title-2": "ዋና ንዑስ ክፍሎች",
                     "side-footer": "የአሰላ ከተማ አስተዳደር © 2026",
                     "nav-citizen": "የዜጎች አገልግሎት",
                     "nav-infra": "የከተማ መሠረተ ልማት",
                     "nav-economy": "የአካባቢ ኢኮኖሚ",
-                    "sub-care": "⚠️ የዜጎች እንክብካቤ ፖርታል",
+                    "sub-care": "⚠️ የዜጎች እንክብካቤ ማዕከል",
                     "sub-vault": "📄 የቅጽ ማጠራቀሚያ እና ፈቃዶች",
                     "sub-sister": "🏢 የክልል እህት ከተሞች",
                     "admin-btn": "የአስተዳዳሪ ፖርታል",
-                    "tag-critical": "አስቸኳይ",
-                    "notice-critical": "የአሰላ-ቁሉምሳ መንገድ ማስታወቂያ፡ በቁሉምሳ ሁለተኛ ደረጃ ትምህርት ቤት መግቢያ አቅራቢያ የከባድ ተሽከርካሪዎች ማዞሪያ ማስተካከያ ተደርጓል።",
-                    "hero-tag": "ወደ ማዕከላዊ የአስተዳደር ፖርታል እንኳን ደህና መጡ",
+                    "tag-critical": "አስቸኳይ ማስታወቂያ",
+                    "notice-critical": "የአሰላ-ቁሉምሳ መንገድ ማስታወቂያ፡ በቁሉምሳ ሁለተኛ ደረጃ ትምህርት ቤት መግቢያ አቅራቢያ የከባድ ተሽከርካሪዎች ማዞሪያ መንገድ ማስተካከያ ተደርጓል።",
+                    "hero-tag": "ወደ ማዕከላዊ የአስተዳደር መግቢያ እንኳን ደህና መጡ",
                     "hero-title": "የአሰላ ከተማ ማዘጋጃ ቤት",
                     "hero-sub": "ዜጎችን ማብቃት፣ ፈጠራን ማሳደግ፣ የከተማ እድገትን መምራት",
-                    "hero-desc": "በማራኪው የቺላሎ ተራራ ምስራቃዊ ግርጌ የምትገኘው አሰላ የነቃ ንግድ፣ የግብርና ቴክኖሎጂ እና የሙያ ጥበብ ማዕከል ናት።",
+                    "hero-desc": "በቺላሎ ተራራ ምስራቃዊ ግርጌ የምትገኘው አሰላ ከተማ የነቃ ንግድ፣ የግብርና ቴክኖሎጂ እና የሙያ ጥበብ ማዕከል ናት። እዚህ የቀጥታ መሠረተ ልማት ክትትልን መቆጣጠር እና ማስተካከያዎችን ማመሳሰል ይችላሉ።",
                     "hero-loc": "አርሲ ዞን፣ ኦሮሚያ፣ ኢትዮጵያ",
                     "hero-era-label": "ዘመን፡",
                     "hero-era-val": "ግንቦት 2018 ዓ.ም (18 E.C.)",
                     "frame-title": "የካፒታል ማዕቀፍ",
-                    "frame-sub": "18 ዓ.ም የንብረት ቁጥጥር",
+                    "frame-sub": "2018 ዓ.ም የንብረት ቁጥጥር",
                     "lbl-infra": "ንቁ ፕሮጀክቶች",
                     "lbl-biz": "የተረጋገጡ ንግዶች",
                     "lbl-resolved": "የተፈቱ አቤቱታዎች",
                     "london-title": "የለንደን ዘይቤ ፈጣን መዳረሻ ስርዓት",
-                    "london-sub": "ተግባራትን በፍጥነት ያግኙ።",
+                    "london-sub": "የአስተዳደር አገልግሎቶችን በፍጥነት ያግኙ። የቀጥታ ዝመናዎች በአካባቢያዊ አጋጣሚዎች ላይ ወዲያውኑ ይከሰታሉ።",
                     "tile-1-tag": "የዜጎች እንክብካቤ",
                     "tile-1-title": "ችግሮችን ያሳውቁ",
-                    "tile-1-desc": "የዜጎችን እንክብካቤ ሪፖርቶችን ያቅርቡ እና የማዘጋጃ ቤት ሰራተኞችን ይከታተሉ።",
+                    "tile-1-desc": "የዜጎችን እንክብካቤ ሪፖርቶችን ያቅርቡ እና የማዘጋጃ ቤት ምላሾችን ያለችግር ይከታተሉ።",
                     "tile-2-tag": "ፈቃዶች እና ቅጾች",
                     "tile-2-title": "ይፋዊ ፈቃዶችን ያውርዱ",
-                    "tile-2-desc": "ይፋዊ የማዘጋጃ ቤት ፒዲኤፍ ቅጾችን እና የግንባታ ፈቃዶችን ያውርዱ።",
-                    "tile-3-tag": "ጨረታዎች",
+                    "tile-2-desc": "ይፋዊ የማዘጋጃ ቤት የፒዲኤፍ ቅጾችን እና የግንባታ ፈቃድ ማዕቀፎችን ያስሱ።",
+                    "tile-3-tag": "ጨረታዎች እና ግዥ",
                     "tile-3-title": "ክፍት ጨረታዎችን ይመልከቱ",
-                    "tile-3-desc": "በግዥ ዳይሬክቶሬት የሚወጡ የህዝብ ጨረታዎችን ያግኙ።",
-                    "dispatch-link": "አገልግሎቱን ያግኙ ↗",
-                    "inc-hist-title": "የአቤቱታዎች ታሪክ",
-                    "inc-hist-sub": "በአካባቢዎ ያሉ የከተማ ችግሮችን ያቅርቡ፣ ያጣሩ ወይም ያስተካክሉ።",
+                    "tile-3-desc": "በቦርዱ የተረጋገጡ ንቁ የንግድ የሕዝብ ጨረታዎችን እና ግዥዎችን ያግኙ።",
+                    "dispatch-link": "ወደ አገልግሎቱ ይሂዱ ↗",
+                    "inc-hist-title": "የአቤቱታዎች ክትትል ታሪክ",
+                    "inc-hist-sub": "በአካባቢዎ ያሉ የከተማ ችግሮችን ያቅርቡ፣ ያጣሩ ወይም በቀጥታ ያስተካክሉ።",
                     "btn-all": "ሁሉም ሁኔታዎች",
                     "btn-rec": "የደረሱ",
                     "btn-prog": "በሂደት ላይ",
@@ -453,16 +506,29 @@
                     "form-submit-btn": "+ አቤቱታውን አስገባ",
                     "sister-title": "የኦሮሚያ ማዘጋጃ ቤቶች የእህትማማች ከተሞች መረብ",
                     "sister-sub": "የክልል ውሂብ ማመሳሰል፣ የመሠረተ ልማት ትስስር እና የጋራ ምህንድስና ማዕቀፎች።",
-                    "foot-desc": "የአሰላ ከተማ ማዘጋጃ ቤት ይፋዊ የዲጂታል መግቢያ የአስተዳደር ስርዓት።",
+                    "sister-node-active-1": "የተገናኘ ዋና መስመር",
+                    "sister-desc-1": "ዋናው የሎጅስቲክስ ኮሪደር። ትኩረቱ የትራንዚት ሪፖርቶችን፣ የከባድ ጭነት መስመሮችን እና የንግድ መስመር ሀብቶችን ማስተናገድ ላይ ነው።",
+                    "sister-latency-label": "የመረብ መዘግየት",
+                    "sister-link-text-1": "የአዳማ ማዕከልን ይክፈቱ ➔",
+                    "sister-node-active-2": "ንቁ የመረብ አካል",
+                    "sister-desc-2": "የሁለተኛ ደረጃ ኢኮኖሚያዊ ትስስር መስመር። ስማርት የሕዝብ አገልግሎቶችን እና የግብርና ቴክኖሎጂ የውሂብ ጎታዎችን በጋራ ማስተዳደር።",
+                    "sister-sync-label": "የማመሳሰል ፍጥነት",
+                    "sister-link-text-2": "የቢሾፍቱ ማዕከልን ይክፈቱ ➔",
+                    "sister-node-active-3": "በትራንዚት ዝግጁነት ላይ ያለ",
+                    "sister-desc-3": "የደቡብ ትራንስፖርት ትስስር መረብ። የመሠረተ ልማት ምርመራዎችን፣ የከተማነት ሞዴሎችን እና የሎጅስቲክስ ክትትልን ያካትታል።",
+                    "sister-latency-label-3": "የማስተላለፊያ ፍጥነት",
+                    "sister-link-text-3": "የሻሸመኔ ማዕከልን ይክፈቱ ➔",
+                    "foot-desc": "ለአሰላ ከተማ ማዘጋጃ ቤት ይፋዊ የዲጂታል መግቢያ ፖርታል ሥነ-ሕንጻ። ለተሻለ አፈፃፀም እና ቁጥጥር ተብሎ የተነደፈ።",
                     "foot-nav-title": "ፈጣን አሰሳ",
-                    "foot-hub": "የፈቃድ ማእከል",
+                    "foot-hub": "የፈቃድ ማዕከል",
                     "foot-care": "የዜጎች እንክብካቤ",
                     "foot-admin": "የአስተዳዳሪ ፖርታል",
-                    "foot-meta-title": "የመዝገብ መረጃ"
+                    "foot-meta-title": "የመዝገብ መረጃ",
+                    "foot-copy": "© 2026 የአሰላ ከተማ ማዘጋጃ ቤት። መብቱ በሕግ የተጠበቀ ነው።"
                 },
                 om: {
                     "lang-label": "🌐 Afaan Oromoo",
-                    "search-holder": "Galmeewwan bulchiinsaa barbaadi...",
+                    "search-holder": "Galmeewwan bulchiinsaa fi caalbaasiiwwan barbaadi...",
                     "side-sub": "Balbala Diqitaalaa Bulchiinsa Magaalaa Asallaa",
                     "side-title-1": "UTUBAAWWAN BULCHIINSAA",
                     "side-title-2": "KUTAA REEKKORDAA WAAREE",
@@ -479,18 +545,17 @@
                     "hero-tag": "Baga Gara Portal Bulchiinsa Giddugaleessaa Nagaan Dhuftan",
                     "hero-title": "Bulchiinsa Magaalaa Asallaa",
                     "hero-sub": "Lammiilee Humneessuu, Kalaqa Jajjabeessuu, Guddina Magaalaa Ariifachiisuu",
-                    "hero-desc": "Huccuu gaarren Chilalo bahaatti kan argamtu Asallaan giddugaleessa daldala ho'aa, teknoolojii qonnaa fi ogummaa harkati.",
+                    "hero-desc": "Huccuu gaarren Chilalo bahaatti kan argamtu Asallaan giddugaleessa daldala ho'aa, teknoolojii qonnaa fi ogummaa harkati. Hordoffii bu'uraalee misoomaa yeroo dhugaa to'achuu fi sirreeffamoota battalatti argachuu dandeessu.",
                     "hero-loc": "Godina Arsiin, Oromiyaa, Itoophiyaa",
                     "hero-era-label": "Bara:",
                     "hero-era-val": "Caamsaa Bara 2018 (18 E.C.)",
-                    "metrics-header": "Safarawwan Koridgarii fi Bu'uraalee Misoomaa Haala Finfinnee",
                     "frame-title": "Maandhee Kaapitaalaa",
                     "frame-sub": "Hordoffii Qabeenyaa Bara 18",
                     "lbl-infra": "Projeektiwwan Bu'ura Misoomaa",
                     "lbl-biz": "Daldaltoota Naannoo Mirkanaa'an",
                     "lbl-resolved": "Gabaasota Lammiilee Furmaata Argan",
                     "london-title": "Sirna Seensa Saffisaa Haala Landan",
-                    "london-sub": "Gochaawwan battalatti argadhadha. Jechoota barbaaddan barreeffama gubbaa irratti barreessaa.",
+                    "london-sub": "Tajaajiloota bulchiinsaa battalatti argadhadha. Haaromsa yeroo dhugaa dabalataan to'adhu.",
                     "tile-1-tag": "Portal Kunuunsa Lammiilee",
                     "tile-1-title": "Rakkoo Naannoo Gabaasi",
                     "tile-1-desc": "Gabaasa kunuunsa lammiilee ergaa fi hojjettoota magaalichaa yeroo gabaabaatti hordofaa.",
@@ -512,18 +577,31 @@
                     "form-lbl-loc": "Iddoo Addichaa ykn Ganda *",
                     "form-lbl-desc": "Ibsa Bal'aa *",
                     "form-submit-btn": "+ Gabaasa Rakkoo Galchi",
-                    "sister-title": "Oromia Municipal Sister-City Network",
-                    "sister-sub": "Cross-regional data synchronization, infrastructural trade clusters, and shared engineering frameworks.",
-                    "foot-desc": "Maanfaayila sirna bulchiinsa portal diqitaalaa ofisilaa Bulchiinsa Magaalaa Asallaati.",
+                    "sister-title": "Hiriira Magaalota Ollaa Oromiyaa",
+                    "sister-sub": "Haaromsa ragaa qaxxaamura naannoo, qorannoo bu'uraalee misoomaa fi hordoffii pirojektoota waliinii.",
+                    "sister-node-active-1": "Siriiba Hidhamtootaa",
+                    "sister-desc-1": "Koridgarii logistiksii isa jalqabaa. Xiyyeeffannoon gabaasa tiraanzitii giddugaleessaa fi qabeenya daldalaa hordofuu irratti.",
+                    "sister-latency-label": "Muzurruu Reetiin",
+                    "sister-link-text-1": "Giddugaleessa Adamaa Bani ➔",
+                    "sister-node-active-2": "Node Hojii Irra Jiru",
+                    "sister-desc-2": "Hordoffii dinagdee isa lammaffaa. Tajaajiloota ummataa ismaartii fi kuusaa ragaa qonnaa waliin bulchuu.",
+                    "sister-sync-label": "Saffisa Sinkii",
+                    "sister-link-text-2": "Giddugaleessa Bishooftuu Bani ➔",
+                    "sister-node-active-3": "Tiraanzitii Qophii Irrallaa",
+                    "sister-desc-3": "Siriiba geejjiba kibbaa. Hordoffii bu'uraalee misoomaa, dizaayinii magaalaa fi hordoffii logistiksii dabalata.",
+                    "sister-latency-label-3": "Hop Kallattii",
+                    "sister-link-text-3": "Giddugaleessa Shaashamane Bani ➔",
+                    "foot-desc": "Maanfaayila sirna bulchiinsa portal diqitaalaa ofisilaa Bulchiinsa Magaalaa Asallaati. Hojii saffisaa fi qulqullinaaf kan dizaayineeffame.",
                     "foot-nav-title": "Gabaasa Saffisaa",
                     "foot-hub": "Giddugaleessa Hayyamaa",
                     "foot-care": "Kunuunsa Lammiilee",
                     "foot-admin": "Portal Bulchiinsaa",
-                    "foot-meta-title": "Metadata Galmeessee & Portal"
+                    "foot-meta-title": "Metadata Galmeessee & Portal",
+                    "foot-copy": "© 2026 Bulchiinsa Magaalaa Asallaa. Mirgi mirkanaa'aadha."
                 }
             };
 
-            // Dynamic DOM Lookup Cache Matrix
+            // Dynamic Functional Core DOM Memory Management Layer
             const DOM = {
                 incidentsContainer: () => document.getElementById('incidents-container'),
                 resolvedCounter: () => document.getElementById('resolved-counter-display'),
@@ -536,11 +614,35 @@
                 sidebar: () => document.getElementById('sidebar'),
                 sidebarOverlay: () => document.getElementById('sidebar-overlay'),
                 langDropdown: () => document.getElementById('lang-dropdown'),
+                langBtn: () => document.getElementById('lang-btn'),
                 currentLangSpan: () => document.getElementById('current-lang'),
-                searchBar: () => document.getElementById('search-bar')
+                searchBar: () => document.getElementById('search-bar'),
+                adminDashboardView: () => document.getElementById('admin-dashboard-view'),
+                accessibilityAnnouncer: () => document.getElementById('accessibility-announcer')
             };
 
-            // High-Performance Deterministic DOM View Generator
+            /**
+             * Security Sanitization Layer - Native XSS Prevention Context Encoder
+             */
+            const Security = {
+                escapeHTML(str) {
+                    if (typeof str !== 'string') return '';
+                    const map = {
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#x27;',
+                        '/': '&#x2F;',
+                        '`': '&grave;'
+                    };
+                    return str.replace(/[&<>"'`\/]/g, (s) => map[s]);
+                }
+            };
+
+            /**
+             * Deterministic UI High-Performance Renderer Engine
+             */
             const Renderer = {
                 render() {
                     const container = DOM.incidentsContainer();
@@ -562,6 +664,14 @@
                         if (inc.status === 'In Progress') badgeStyle = "bg-amber-50 text-amber-800 border-amber-200/50";
                         if (inc.status === 'Resolved') badgeStyle = "bg-purple-50 text-purple-800 border-purple-200/50";
 
+                        // Run contextual security sanitization routines over the reactive input properties
+                        const safeID = Security.escapeHTML(inc.id);
+                        const safeDate = Security.escapeHTML(inc.date);
+                        const safeStatus = Security.escapeHTML(inc.status);
+                        const safeCategory = Security.escapeHTML(inc.category);
+                        const safeDescription = Security.escapeHTML(inc.description);
+                        const safeLocation = Security.escapeHTML(inc.location);
+
                         const card = document.createElement('div');
                         card.className = "bg-white p-5 rounded-2xl border border-slate-100 shadow-xs space-y-3 transition-all";
 
@@ -571,17 +681,22 @@
                                 <div class="pt-3 mt-2 border-t border-slate-100 space-y-3">
                                     <div class="flex flex-wrap items-center justify-between gap-2">
                                         <span class="text-[10px] font-bold text-red-600 uppercase tracking-wider">Modify Operations:</span>
-                                        <div class="inline-flex gap-1 bg-slate-100 p-0.5 rounded-md">
-                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Received')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Received' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">Received</button>
-                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'In Progress')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'In Progress' ? 'bg-amber-500 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">In Progress</button>
-                                            <button onclick="App.DataEngine.updateStatus('${inc.id}', 'Resolved')" class="px-2 py-0.5 text-[10px] font-semibold rounded ${inc.status === 'Resolved' ? 'bg-purple-600 text-white' : 'text-slate-600 hover:text-slate-900 cursor-pointer'}">Resolved</button>
+                                        <div role="group" aria-label="Incident status controllers" class="inline-flex gap-1 bg-slate-100 p-0.5 rounded-md">
+                                            <button onclick="App.DataEngine.updateStatus('${safeID}', 'Received')" class="px-2 py-0.5 text-[10px] font-semibold rounded transition-colors cursor-pointer ${inc.status === 'Received' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:text-slate-900'}">Received</button>
+                                            <button onclick="App.DataEngine.updateStatus('${safeID}', 'In Progress')" class="px-2 py-0.5 text-[10px] font-semibold rounded transition-colors cursor-pointer ${inc.status === 'In Progress' ? 'bg-amber-500 text-white' : 'text-slate-600 hover:text-slate-900'}">In Progress</button>
+                                            <button onclick="App.DataEngine.updateStatus('${safeID}', 'Resolved')" class="px-2 py-0.5 text-[10px] font-semibold rounded transition-colors cursor-pointer ${inc.status === 'Resolved' ? 'bg-purple-600 text-white' : 'text-slate-600 hover:text-slate-900'}">Resolved</button>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-1 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                                        <input type="text" value="${inc.category}" onchange="App.DataEngine.updateFields('${inc.id}', 'category', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs font-semibold focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Category">
-                                        <input type="text" value="${inc.location}" onchange="App.DataEngine.updateFields('${inc.id}', 'location', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Location">
-                                        <textarea onchange="App.DataEngine.updateFields('${inc.id}', 'description', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" rows="2" placeholder="Edit Description">${inc.description}</textarea>
-                                        <div class="text-[9px] text-emerald-700 font-medium">✨ Modifying inputs automatically syncs to the data matrix instance.</div>
+                                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Category</label>
+                                        <input type="text" value="${safeCategory}" onchange="App.DataEngine.updateFields('${safeID}', 'category', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs font-semibold focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Category">
+                                        
+                                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Location / Kebele</label>
+                                        <input type="text" value="${safeLocation}" onchange="App.DataEngine.updateFields('${safeID}', 'location', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" placeholder="Edit Location">
+                                        
+                                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Description</label>
+                                        <textarea onchange="App.DataEngine.updateFields('${safeID}', 'description', this.value)" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-[#064e3b] outline-none" rows="2" placeholder="Edit Description">${safeDescription}</textarea>
+                                        <div class="text-[9px] text-emerald-700 font-medium">✨ Changes persist immediately to localStorage.</div>
                                     </div>
                                 </div>`;
                         }
@@ -589,73 +704,121 @@
                         card.innerHTML = `
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2">
-                                    <span class="bg-emerald-50 text-emerald-800 text-[10px] px-2 py-0.5 rounded font-mono font-bold">${inc.id}</span>
-                                    <span class="text-xs text-slate-400 font-medium">${inc.date}</span>
+                                    <span class="bg-emerald-50 text-emerald-800 text-[10px] px-2 py-0.5 rounded font-mono font-bold">${safeID}</span>
+                                    <span class="text-xs text-slate-400 font-medium">${safeDate}</span>
                                 </div>
-                                <span class="border ${badgeStyle} text-[11px] font-medium px-2.5 py-0.5 rounded-full">${inc.status}</span>
+                                <span class="border ${badgeStyle} text-[11px] font-medium px-2.5 py-0.5 rounded-full">${safeStatus}</span>
                             </div>
-                            <h4 class="font-bold text-slate-900 text-sm">${inc.category}</h4>
-                            <p class="text-xs text-slate-500 leading-relaxed">${inc.description}</p>
+                            <h4 class="font-bold text-slate-900 text-sm">${safeCategory}</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">${safeDescription}</p>
                             <div class="text-[11px] text-slate-400 flex items-center space-x-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-                                <span>${inc.location}</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                                <span>${safeLocation}</span>
                             </div>
                             ${adminControls}
                         `;
                         container.appendChild(card);
                     });
 
-                    // Update metrics data pipeline counter
+                    // Update Metrics Count Subsystem
                     const totalResolved = State.incidents.filter(i => i.status === 'Resolved').length + 142;
                     const resolvedDisplay = DOM.resolvedCounter();
                     if (resolvedDisplay) resolvedDisplay.innerText = totalResolved;
                 }
             };
 
-            // Secure Authorization Context Manager
+            /**
+             * Persistent Authentication Workflow Manager
+             */
             const Auth = {
+                init() {
+                    // Check local storage node persistence variables to retain user session loops across views
+                    const sessionActive = localStorage.getItem('asela_admin_authenticated');
+                    if (sessionActive === 'true') {
+                        Auth.applyAuthenticatedUIState(true);
+                    }
+                },
                 openModal() { DOM.adminModal().classList.remove('hidden'); },
                 closeModal() {
                     DOM.adminModal().classList.add('hidden');
                     DOM.loginError().classList.add('hidden');
                     DOM.loginForm().reset();
                 },
+                applyAuthenticatedUIState(isLoggedIn) {
+                    State.isAdminLoggedIn = isLoggedIn;
+                    const adminBadge = DOM.adminBadge();
+                    const adminDashboard = DOM.adminDashboardView();
+                    const btn = DOM.adminBtn();
+
+                    if (isLoggedIn) {
+                        if (adminBadge) adminBadge.classList.remove('hidden');
+                        if (adminDashboard) adminDashboard.classList.remove('hidden');
+                        
+                        if (btn) {
+                            btn.innerText = "Log Out Admin";
+                            btn.className = "bg-red-700 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-red-800 transition-colors shadow-sm cursor-pointer";
+                            btn.setAttribute('onclick', 'App.Auth.handleLogout()');
+                        }
+                    } else {
+                        if (adminBadge) adminBadge.classList.add('hidden');
+                        if (adminDashboard) adminDashboard.classList.add('hidden');
+                        
+                        if (btn) {
+                            btn.innerText = "Admin Portal";
+                            btn.className = "bg-slate-900 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-sm cursor-pointer";
+                            btn.setAttribute('onclick', 'App.Auth.openModal()');
+                        }
+                    }
+                },
                 handleLogin(e) {
                     e.preventDefault();
-                    const email = document.getElementById('adminEmail').value;
+                    const email = document.getElementById('adminEmail').value.trim();
                     const password = document.getElementById('adminPassword').value;
 
-                    // Secured fallback static matchers
                     if (email === "keolkanan@gmail.com" && password === "1234qwer@AS") {
-                        State.isAdminLoggedIn = true;
-                        DOM.adminBadge().classList.remove('hidden');
-                        
-                        const btn = DOM.adminBtn();
-                        btn.innerText = "Log Out Admin";
-                        btn.className = "bg-red-700 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-red-800 transition-colors shadow-sm cursor-pointer";
-                        btn.setAttribute('onclick', 'App.Auth.handleLogout()');
-
+                        localStorage.setItem('asela_admin_authenticated', 'true');
+                        Auth.applyAuthenticatedUIState(true);
                         Auth.closeModal();
                         Renderer.render();
+                        
+                        const announcer = DOM.accessibilityAnnouncer();
+                        if (announcer) announcer.innerText = "Admin authorization successful. Dashboard control access unlocked.";
                     } else {
                         DOM.loginError().classList.remove('hidden');
                     }
                 },
                 handleLogout() {
-                    State.isAdminLoggedIn = false;
-                    DOM.adminBadge().classList.add('hidden');
-                    
-                    const btn = DOM.adminBtn();
-                    btn.innerText = "Admin Portal";
-                    btn.className = "bg-slate-900 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-sm cursor-pointer";
-                    btn.setAttribute('onclick', 'App.Auth.openModal()');
-                    
+                    localStorage.removeItem('asela_admin_authenticated');
+                    Auth.applyAuthenticatedUIState(false);
                     Renderer.render();
+
+                    const announcer = DOM.accessibilityAnnouncer();
+                    if (announcer) announcer.innerText = "Administrative session cleared successfully.";
                 }
             };
 
-            // Data Transformation Engine (Natively Processing CRUD Mutations)
+            /**
+             * Micro Data Processing Engine (LocalStorage Integration)
+             */
             const DataEngine = {
+                init() {
+                    // Check storage structures for state allocation updates
+                    const stored = localStorage.getItem('asela_municipal_incidents');
+                    if (stored) {
+                        try {
+                            State.incidents = JSON.parse(stored);
+                        } catch (e) {
+                            State.incidents = [...FallbackIncidents];
+                            DataEngine.syncToLocalStorage();
+                        }
+                    } else {
+                        State.incidents = [...FallbackIncidents];
+                        DataEngine.syncToLocalStorage();
+                    }
+                },
+                syncToLocalStorage() {
+                    localStorage.setItem('asela_municipal_incidents', JSON.stringify(State.incidents));
+                },
                 filterIncidents(status, element) {
                     State.currentFilterStatus = status;
                     element.parentElement.querySelectorAll('button').forEach(btn => {
@@ -668,21 +831,31 @@
                     const target = State.incidents.find(i => i.id === id);
                     if (target) {
                         target.status = newStatus;
+                        DataEngine.syncToLocalStorage();
                         Renderer.render();
                     }
                 },
                 updateFields(id, fieldName, value) {
                     const target = State.incidents.find(i => i.id === id);
-                    if (target && value.trim() !== '') {
-                        target[fieldName] = value;
-                        // Avoid complete disruptive re-render cycles during raw input text modification focus drops
+                    if (target) {
+                        const validatedValue = value.trim();
+                        if (validatedValue !== '') {
+                            target[fieldName] = validatedValue;
+                            DataEngine.syncToLocalStorage();
+                        }
                     }
                 },
                 handleFormSubmit(e) {
                     e.preventDefault();
                     const category = document.getElementById('formCategory').value;
-                    const location = document.getElementById('formLocation').value;
-                    const description = document.getElementById('formDescription').value;
+                    const location = document.getElementById('formLocation').value.trim();
+                    const description = document.getElementById('formDescription').value.trim();
+
+                    // Absolute protection checks covering raw whitespace submissions
+                    if (!location || !description) {
+                        alert("Input fields cannot consist of whitespace characters exclusively.");
+                        return;
+                    }
 
                     const record = {
                         id: `REP-2026-${Math.floor(100 + Math.random() * 900)}`,
@@ -694,52 +867,93 @@
                     };
 
                     State.incidents.unshift(record);
+                    DataEngine.syncToLocalStorage();
                     DOM.incidentForm().reset();
                     Renderer.render();
+
+                    const announcer = DOM.accessibilityAnnouncer();
+                    if (announcer) announcer.innerText = `Incident record reported successfully under identity ${record.id}`;
                 }
             };
 
-            // Core Translation Subsystem
+            /**
+             * Internationalization (i18n) Engine Subsystem
+             */
             const I18n = {
                 changeLanguage(lang) {
                     const bundle = Translations[lang];
                     if (!bundle) return;
 
-                    DOM.currentLangSpan().innerText = bundle['lang-label'];
+                    const langBtn = DOM.langBtn();
+                    const currentLangSpan = DOM.currentLangSpan();
+                    const langDropdown = DOM.langDropdown();
+
+                    if (currentLangSpan) currentLangSpan.innerText = bundle['lang-label'];
+                    if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
                     
                     document.querySelectorAll('[data-i18n]').forEach(el => {
                         const key = el.getAttribute('data-i18n');
-                        if (bundle[key]) el.innerText = bundle[key];
+                        if (bundle[key]) {
+                            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                                el.placeholder = bundle[key];
+                            } else {
+                                el.innerText = bundle[key];
+                            }
+                        }
                     });
 
                     const searchInput = DOM.searchBar();
                     if (searchInput && bundle['search-holder']) searchInput.placeholder = bundle['search-holder'];
 
                     document.documentElement.lang = lang;
-                    DOM.langDropdown().classList.add('hidden');
+                    if (langDropdown) langDropdown.classList.add('hidden');
+
+                    const announcer = DOM.accessibilityAnnouncer();
+                    if (announcer) announcer.innerText = `Language localization scope structural nodes translated to ${lang.toUpperCase()}`;
                 }
             };
 
-            // Layout Presentation Rules
+            /**
+             * Structural View Configuration Operations
+             */
             const UI = {
                 toggleSidebar() {
-                    DOM.sidebar().classList.toggle('-translate-x-full');
-                    DOM.sidebarOverlay().classList.toggle('hidden');
+                    const sidebar = DOM.sidebar();
+                    const overlay = DOM.sidebarOverlay();
+                    if (sidebar && overlay) {
+                        sidebar.classList.toggle('-translate-x-full');
+                        overlay.classList.toggle('hidden');
+                    }
                 },
                 toggleLangDropdown() {
-                    DOM.langDropdown().classList.toggle('hidden');
+                    const menu = DOM.langDropdown();
+                    const btn = DOM.langBtn();
+                    if (menu && btn) {
+                        const isHidden = menu.classList.contains('hidden');
+                        menu.classList.toggle('hidden');
+                        btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+                    }
                 }
             };
 
-            // Event Catch Rules
+            // Setup Context Action Catch Targets 
             window.addEventListener('click', (e) => {
-                if (!e.target.closest('#current-lang') && !e.target.closest('#lang-dropdown')) {
+                if (!e.target.closest('#lang-btn') && !e.target.closest('#lang-dropdown')) {
                     const menu = DOM.langDropdown();
-                    if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
+                    const btn = DOM.langBtn();
+                    if (menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
 
-            window.addEventListener('DOMContentLoaded', () => Renderer.render());
+            // Initialize Application Orchestration Loop
+            window.addEventListener('DOMContentLoaded', () => {
+                DataEngine.init();
+                Auth.init();
+                Renderer.render();
+            });
 
             return { UI, I18n, Auth, DataEngine };
         })();
